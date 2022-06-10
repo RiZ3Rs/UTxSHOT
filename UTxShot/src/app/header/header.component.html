@@ -1,0 +1,32 @@
+<nav class = headbar>
+    <div class = "head-div">
+        <section class = "sdiv">
+            <div class ="souv">
+                <label for="checkbox" (input)="changeColor()" class="toggler">
+                    <input type="checkbox" id ="checkbox">
+                    <span class="ball"></span>
+                    <i class ="ri-cross-line sun"></i>
+                    <i class ="ri-sun-line sun"></i>
+                </label>
+            </div>
+            <div class = "search">
+                <input  class ="searchInput" type="search" placeholder="recherche" aria-label="Search">
+                <button class ="searchButton"  type="submit"> Q</button>
+            </div>
+        </section>
+        <section class = "sdiv">
+            <img src="../../assets/files/img/logo_UTxShot.png" alt="" [routerLink]="['']" >
+        </section>
+        <section class = "sdiv">
+            <button class="login-btn" [routerLink]="['/connection']"> Connexion </button>
+        </section>
+    </div>
+    <div class = "nav-bar">
+        <button [routerLink]="['/lieux']"> Lieux </button>
+        <button [routerLink]="['/parties']"> Parties </button>
+        <button [routerLink]="['/ventes']"> Ventes </button>
+        <button [routerLink]="['/wikishot']"> WikiShot </button>
+    </div>
+</nav>
+
+

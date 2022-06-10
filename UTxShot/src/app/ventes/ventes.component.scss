@@ -1,0 +1,91 @@
+
+
+.body-section{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: inherit;
+    align-items:flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+
+    box-sizing: border-box;
+
+    color: var(--blue);
+}
+
+.filtres-section{
+    position: sticky;
+    z-index: 4;
+    top: 4.1em;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content:flex-start;
+
+
+    box-sizing: border-box;
+    width: 11%;
+    height: 32em;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 5.5em;
+    min-height: 100%;
+
+    color: var(--white);
+    box-shadow: 2px -10px 8px 1px var(--shadow );
+
+    background: linear-gradient(var(--degradeColor), var(--headPrincipal));
+}
+
+.Vente-section{
+
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: flex-start;
+    justify-content:space-around;
+
+    background-color: var(--backColor);
+
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 5em;
+    height: 100%;
+
+    color: var(--blue);
+}
+
+.filtre-btn{
+    width: 100%;
+    margin: 0px;
+
+    border:0px ;
+
+    
+    width: 100%;
+    background: none;
+    color: var(--fontColor1);
+
+    
+}
+
+.filtre{
+
+    border-top: solid 1px var(--butonCback1 );
+    width: 100%;
+    color: var(--fontColor1);
+    font-style: normal;
+    background: linear-gradient(var(--degradeColor), var(--headPrincipal));
+}
+

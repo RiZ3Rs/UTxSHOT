@@ -1,0 +1,125 @@
+
+*{
+    color: var(--fontColor1);
+}
+
+.body-section{
+    
+    width: 100%;
+    min-height: 35em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail{
+    padding-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: var(--backColor);
+    width: 80%;
+    min-height: 35em;
+    box-shadow: 0px -2px 12px 2px var(--shadow) ;
+
+}
+
+img{
+    max-width: 25em;
+    max-height: 25em;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    color:var(--fontColor1);
+
+    width: 100%;
+    padding: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+    background-color: var(--backColor);
+}
+
+.images{
+    height: 9em;
+    min-height: 9em;
+
+    width: 95%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+.titre{
+    font-weight: bold;
+    font-size:3em;
+    text-align: center;
+    color: var(--fontColor3);
+    
+    box-sizing: border-box;
+
+    width: 100%;
+    max-height: 10em;
+    border-bottom: solid 2px var(--fontColor3);
+    overflow: hidden;
+}
+
+.description{
+    font-weight: bold;
+    font-size:auto;
+    text-align: center;
+    
+    box-sizing: border-box;
+    color: var(--fontColor1);
+
+
+    width: 100%;
+    max-height: 6.5em;
+    overflow: auto;
+}
+
+.etat{
+    font-weight: bold;
+    font-size:auto;
+    text-align: center;
+    
+    box-sizing: border-box;
+
+    width: 100%;
+    max-height: 5.5em;
+}
+
+.vendeur{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    font-weight: bold;
+    font-size:auto;
+    text-align: center;
+
+    box-sizing: border-box;
+
+    width: 100%;
+    max-height: 3em;
+}
+
+.prix{
+    font-weight: bold;
+    font-size: 2em;
+    color: var(--fontColor3);
+}
+
+p{
+    margin: 0px;
+    color: var(--fontColor1);
+}

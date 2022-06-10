@@ -1,0 +1,87 @@
+<section  class = "body-section">
+    <div class  = "filtres-section">
+      <section class="filtre">
+        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#colorFilter" role="button" aria-expanded="false" aria-controls="collapseExample">COULEUR 🔽</button>
+        <div class="collapse" id="colorFilter">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                black
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                white
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                blue
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                orange
+              </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="filtre">
+        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#sizeFilter" role="button" aria-expanded="false" aria-controls="collapseExample"> TAILLE 🔽</button>
+        <div class="collapse" id="sizeFilter">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                12-24 cm
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                24-36cm
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                36-40cm
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                + 40cm
+              </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="filtre">
+        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#viseurFilter" role="button" aria-expanded="false" aria-controls="collapseExample">VISEUR 🔽</button>
+        <div class="collapse" id="viseurFilter">
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Avec
+              </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Sans
+              </label>
+          </div>
+        </div>
+      </section>
+    </div>
+
+
+    <div class = "Vente-section">
+        <app-vente-carte *ngFor="let productVar of ArticleArray" [article]="productVar"></app-vente-carte>
+    </div>
+</section>
+

@@ -1,0 +1,62 @@
+:root{
+    --headPrincipal: #45969a;
+    --headSecond : #8458a3 ;
+    --backColor : #fbe3d9;
+    --degradeColor :#4fb7ba ;
+    --darkBlue : #45969a ;
+    --blue : #4fb7ba;
+    --orange : #8458a3;
+    --black : #444c4e;
+    --white : #4fb7ba;
+    --shadow : #000000;
+    --hoverColor: #8458a3;
+    --fontColor1: #000000;
+    --fontColor2 : #ebd9c8;
+    --fontColor3 : #8458a3;
+    --butonCback1 : #8458a3 ;
+    --butonCborder: #444c4e;
+    --minRadius : 10px;
+    --maxRadius : 20px;
+}
+
+[data-theme="dark"]{
+    
+
+    --headPrincipal: #96043e;
+    --headSecond : #C70039 ;
+    --backColor : #051b55;
+    --degradeColor :#C70039 ;
+    --darkBlue : #96043e ;
+    --blue : #0b2b80 ;
+    --orange : #C70039;
+    --black : #444c4e;
+    --white : #ffffff;
+    --shadow : #000000;
+    --hoverColor: #C70039;
+    --fontColor1: #ffffff;
+    --fontColor2 : #000000;
+    --fontColor3 : #C70039;
+    --butonCback1 : #0b2b80 ;
+    --butonCborder: #0b2b80;
+}
+
+body{
+    color: var(--fontColor1);
+}
+
+
+body::-webkit-scrollbar {
+    width: 10px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--orange); /* color of the tracking area */
+    margin-top: 200%;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--darkBlue ); /* color of the scroll thumb */
+    border-radius: 3px; /* roundness of the scroll thumb */
+    border: 1px solid var(--orange); /* creates padding around scroll thumb */
+}
+

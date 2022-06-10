@@ -1,0 +1,232 @@
+
+
+.headbar{
+    position: fixed;
+    top : 0px;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+    color: var(--white);
+
+    &:hover{
+        .nav-bar{
+            display: flex;
+        }
+    }
+
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    justify-content: centre;
+    align-items: center;
+
+    box-sizing:border-box;
+
+    height: 100%;
+    max-height: 100%;
+}
+
+.searchInput{
+
+    font-size: auto;
+    background-color: var(--white);
+    color : var(--fontColor1);
+
+    border-right :solid 1px var(--black);
+    border-top : solid 2px var(--butonCborder);
+    border-bottom : solid 2px var(--butonCborder);
+    border-left : solid 2px var(--butonCborder);
+
+    border-top-left-radius: var(--minRadius);
+    border-bottom-left-radius: var(--minRadius);
+    min-width: 10%;
+
+    padding: 0px;
+    padding-left: 1em;
+    margin: 0px;
+    height: 2em;
+    width: 90%;
+    max-height: 100%;
+    box-shadow: -2px 0px 8px var(--shadow);
+}
+
+.searchButton{
+    
+    font-size: auto;
+    background-color: var(--white);
+    color : var(--fontColor1);
+
+    border : 0px;
+    border-top : solid 2px var(--butonCborder);
+    border-bottom : solid 2px var(--butonCborder);
+    border-right : solid 2px var(--butonCborder);
+
+    border-radius: 0px;
+    border-top-right-radius: var(--minRadius);
+    border-bottom-right-radius: var(--minRadius);
+    min-width: 10%;
+
+    padding: 0px;
+    margin: 0px;
+    height: 2em;
+    width: 10%;
+    max-height: 100%;
+    &:hover{
+        top : 0px
+    }
+    box-shadow: 2px 0px 8px var(--shadow);
+}
+
+
+
+.head-div{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--headPrincipal);
+    border-bottom: solid 2px var(--headSecond);
+    box-shadow: 8.7em 0px 6px var(--shadow);
+}
+
+.sdiv{
+    width: 33%!important;
+    max-height: 33%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar{
+
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    position:relative;
+    top : -2px;
+    margin: 0px;
+    box-sizing: border-box;
+    width: 70%;
+
+    background-color: var(--headPrincipal);
+    border: solid 2px var(--headSecond);
+    border-top: 0px;
+    border-bottom-left-radius: var(--maxRadius);
+    border-bottom-right-radius: var(--maxRadius);
+
+    padding: 0.3em;
+
+    box-shadow: 0px 5px 6px -3px var(--shadow);
+
+}
+
+img{
+    max-height: 4rem;
+}
+
+
+
+
+
+input{
+    width: auto;
+    height: 50%;
+}
+
+button{
+    background-color: var(--butonCback1);
+    color : var(--fontColor1);
+    border : solid 1px var(--butonCborder);
+    border-radius: var(--minRadius);
+    min-width: 10%;
+
+    box-shadow: 0px 0px 8px var(--shadow);
+
+    &:hover{
+        position:relative;
+        top : -4px
+    }
+}
+
+.login-btn{
+    background-color: var(--butonCback1);
+    color : var(--fontColor1);
+    border : solid 0px var(--blue);
+    border-radius: var(--minRadius);
+    min-width: 60%;
+
+    box-shadow: 0px 0px 8px var(--shadow);
+
+    &:hover{
+        border : solid 1px var(--white);
+    }
+}
+
+
+//input changement couleur
+
+#checkbox{
+    display: none;
+}
+
+.toggler{
+    display: block;
+    width: 54px;
+    height: 26px;
+    border:  2px solid var(--butonCborder);
+    background-color: var(--white);
+    box-shadow: 0px 0px 8px var(--shadow);
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.ball{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ball{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    left: 1px;
+    z-index: 10;
+    transition: transform .5s ease-in-out;
+}
+
+#checkbox:checked + .ball{
+    transform: translate(29px,-50%);
+}
+
+.souv{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: space-around ;
+}

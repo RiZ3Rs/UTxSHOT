@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4">Connectez-vous à votre compte</h3>
+                            <p class="text-muted mb-4">Si vous avez déjà un compte, connectez-vous pour profiter pleinement du site.</p>
+                            <form>
+                                <div class="form-group mb-3">
+                                    <input type="email" id="email" required class="input">
+                                    <label for="email" class="input-label " > Adressse email</label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input type="password" id="mdp" required class="input">
+                                    <label for="mdp" class="input-label " > Mot de passe </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <div class ="souv">
+                                        <label for="souv" class="toggler">
+                                            <input type="checkbox" id ="souv">
+                                            <span class="ball"></span>
+                                            <i class ="ri-cross-line sun"></i>
+                                            <i class ="ri-sun-line sun"></i>
+                                        </label>
+                                        <p class="ball-text"> Se souvenir de moi </p>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Se connecter</button>
+                                <div class="text-center d-flex justify-content-between mt-4"><p>Pas de compte ? <a [routerLink]="'/inscription'" class="font-italic text-muted"> 
+                                        <u>Inscrivez-vous</u></a></p></div>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+            </div>
+        </div><!-- End -->
+
+    </div>
+</div>
+

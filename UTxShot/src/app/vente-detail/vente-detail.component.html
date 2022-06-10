@@ -1,0 +1,55 @@
+<section class= "body-section">
+    <div class = "detail">
+      <p class="titre"> {{article.titre}}</p>
+        <div *ngIf="nbImage()>1;else uniqueImage" id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button *ngIf="otherImage(0)" type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button *ngIf="otherImage(1)" type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button *ngIf="otherImage(2)" type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div> 
+            <div class="carousel-inner">
+              <div  *ngIf="otherImage(0)" class="carousel-item active" data-bs-interval="5000"> 
+                <img src="{{article.image[0]}}" class="d-block w-100" alt="...">
+              </div>
+              <div  *ngIf="otherImage(1)" class="carousel-item" data-bs-interval="2000"> 
+                <img src="{{article.image[1]}}" class="d-block w-100" alt="...">
+              </div>
+              <div  *ngIf="otherImage(2)" class="carousel-item" data-bs-interval="2000"> 
+                <img src="{{article.image[2]}}" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <ng-template #uniqueImage>
+            <img src="{{article.image[0]}}"  alt="...">
+        </ng-template>
+        <div class = "card">
+          <div class = "description">
+            <p> Taille : {{article.taille}} cm</p>
+            <p> vitesse balle : {{article.puissance}} km/h</p>
+            <p *ngIf="article.viseur; else viseurNon"> Viseur : oui </p>
+            <ng-template #viseurNon> Viseur : non </ng-template>
+            <p> Capacité chargeur : {{article.cap_chargeur}}</p>
+          </div>
+          <div class = "etat">
+            <p> Etat  : {{article.etat}}</p>
+            <p *ngIf="article.custom ; else customNon"> Customisé : oui</p>
+            <ng-template #customNon> Customisé : non</ng-template>
+            <p> Munitions : {{article.munitions}}</p>
+          </div>
+          <div class = "vendeur">
+            <p class = 'prix'> {{article.prix}}€ </p>
+            <p> note vendeur :</p>
+          </div>
+        </div>
+    </div>
+    
+</section>
+

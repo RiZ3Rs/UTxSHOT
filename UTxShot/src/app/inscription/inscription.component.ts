@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-inscription',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionComponent implements OnInit {
 
-  constructor() { }
+  isSignIn = false;
+  constructor( public firebaseService : FirebaseService) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('user') !== null){
+      this.isSignIn = true;
+    }else{
+      this.isSignIn = false;
+    }
   }
+  
+  async onSignup( email : string , password : string){
+    await this.firebaseService.signup(email,password)
+    if(this.firebaseService.isLoggedIn){
+      this.isSignIn = true;
+    }
+  }
+
 
 }

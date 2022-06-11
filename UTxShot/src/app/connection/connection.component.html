@@ -12,15 +12,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-10 col-xl-7 mx-auto">
-                            <h3 class="display-4">Connectez-vous à votre compte</h3>
+                            <h3 class="display-4">Connectez-vous à votre compte <br> {{isSignIn}}</h3>
                             <p class="text-muted mb-4">Si vous avez déjà un compte, connectez-vous pour profiter pleinement du site.</p>
                             <form>
                                 <div class="form-group mb-3">
-                                    <input type="email" id="email" required class="input">
+                                    <input type="email " #email id="email" required class="input">
                                     <label for="email" class="input-label " > Adressse email</label>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <input type="password" id="mdp" required class="input">
+                                    <input type="password " #password id="mdp" required class="input">
                                     <label for="mdp" class="input-label " > Mot de passe </label>
                                 </div>
                                 <div class="custom-control custom-checkbox mb-3">
@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                                 
-                                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Se connecter</button>
+                                <button type="submit" (click)="onSignin(email.value,password.value)" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Se connecter</button>
                                 <div class="text-center d-flex justify-content-between mt-4"><p>Pas de compte ? <a [routerLink]="'/inscription'" class="font-italic text-muted"> 
                                         <u>Inscrivez-vous</u></a></p></div>
                             </form>

@@ -154,17 +154,19 @@ input{
 }
 
 button{
-    background-color: var(--butonCback1);
+    background-color: var(--headPrincipal);
     color : var(--fontColor1);
     border : solid 1px var(--butonCborder);
     border-radius: var(--minRadius);
     min-width: 10%;
 
-    box-shadow: 0px 0px 8px var(--shadow);
+    
 
     &:hover{
-        position:relative;
-        top : -4px
+        background-color: var(--butonCback1);
+        border-color : var(--butonCborder);
+        transition: color 2s;
+        box-shadow: 0px 0px 8px var(--shadow);
     }
 }
 

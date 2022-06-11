@@ -42,7 +42,7 @@
 
     font-size: auto;
     background-color: var(--white);
-    color : var(--fontColor1);
+    color : var(--black);
 
     border-right :solid 1px var(--black);
     border-top : solid 2px var(--butonCborder);
@@ -66,7 +66,7 @@
     
     font-size: auto;
     background-color: var(--white);
-    color : var(--fontColor1);
+    color : var(--black);
 
     border : 0px;
     border-top : solid 2px var(--butonCborder);
@@ -155,7 +155,7 @@ input{
 
 button{
     background-color: var(--headPrincipal);
-    color : var(--fontColor1);
+    color : var(--white);
     border : solid 1px var(--butonCborder);
     border-radius: var(--minRadius);
     min-width: 10%;

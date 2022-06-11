@@ -1,42 +1,48 @@
 :root{
-    --headPrincipal: #45969a;
-    --headSecond : #8458a3 ;
-    --backColor : #fbe3d9;
-    --degradeColor :#4fb7ba ;
-    --darkBlue : #45969a ;
-    --blue : #4fb7ba;
-    --orange : #8458a3;
-    --black : #444c4e;
-    --white : #4fb7ba;
+
+
+    --headPrincipal: #2221a3;
+    --headSecond : #fb7902 ;
+    --backColor : #ffffff;
+    --backColor2 : #efefef;
+    --degradeColorD : #bb5a01;
+    --degradeColor :#fb7902 ;
+    --darkBlue : #2221a3 ;
+    --blue : #2221a3;
+    --orange : #fb7902;
+    --black : #000000;
+    --white : #ffffff;
     --shadow : #000000;
-    --hoverColor: #8458a3;
+    --hoverColor: #fb7902;
     --fontColor1: #000000;
-    --fontColor2 : #ebd9c8;
-    --fontColor3 : #8458a3;
-    --butonCback1 : #8458a3 ;
-    --butonCborder: #444c4e;
+    --fontColor2 : #ffffff;
+    --fontColor3 : #fb7902;
+    --butonCback1 : #fb7902 ;
+    --butonCborder: #000000;
+
     --minRadius : 10px;
     --maxRadius : 20px;
 }
 
 [data-theme="dark"]{
-    
 
-    --headPrincipal: #96043e;
-    --headSecond : #C70039 ;
-    --backColor : #051b55;
-    --degradeColor :#C70039 ;
+    --headPrincipal: #051b55;
+    --headSecond : #960421;
+    --backColor : #181818;
+    --backColor2 : #262626;
+    --degradeColorD : #b20225;
+    --degradeColor :#960421 ;
     --darkBlue : #96043e ;
-    --blue : #0b2b80 ;
-    --orange : #C70039;
+    --blue : #b20225 ;
+    --orange : #b20225;
     --black : #444c4e;
     --white : #ffffff;
     --shadow : #000000;
-    --hoverColor: #C70039;
+    --hoverColor: #051b55;
     --fontColor1: #ffffff;
     --fontColor2 : #000000;
-    --fontColor3 : #C70039;
-    --butonCback1 : #0b2b80 ;
+    --fontColor3 : #b20225;
+    --butonCback1 : #96043e ;
     --butonCborder: #0b2b80;
 }
 

@@ -13,6 +13,8 @@ import { VenteCarteComponent } from './vente-carte/vente-carte.component';
 import { VenteDetailComponent } from './vente-detail/vente-detail.component';
 import { VentesComponent } from './ventes/ventes.component';
 import { WikishotComponent } from './wikishot/wikishot.component';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [

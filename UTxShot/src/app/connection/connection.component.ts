@@ -7,33 +7,19 @@ import { FirebaseService } from '../services/firebase.service';
   styleUrls: ['./connection.component.scss']
 })
 export class ConnectionComponent implements OnInit {
-  isSignIn = false;
+  isSignedIn = false
   constructor( public firebaseService : FirebaseService) { }
-
-  ngOnInit(): void {
-    if(localStorage.getItem('user') !== null){
-      this.isSignIn = true;
-    }else{
-      this.isSignIn = false;
-    }
+  ngOnInit(){
+    if(localStorage.getItem('user')!== null)
+    this.isSignedIn= true
+    else
+    this.isSignedIn = false
   }
-  
-  async onSignup( email : string , password : string){
-    await this.firebaseService.signup(email,password)
-    if(this.firebaseService.isLoggedIn){
-      this.isSignIn = true;
-    }
-  }
-
-  async onSignin( email : string , password : string){
-    await this.firebaseService.signin(email,password)
-    if(this.firebaseService.isLoggedIn){
-      this.isSignIn = true;
-    }
-  }
-
-  handleLogout(){
-    
+  async onSignin(email:string,password:string){
+    await this.firebaseService.signin(email,password);
+    if(this.firebaseService.isLoggedIn)
+    this.isSignedIn = true;
+    location.reload();
   }
 
 }

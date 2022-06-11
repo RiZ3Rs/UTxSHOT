@@ -12,18 +12,13 @@ export class InscriptionComponent implements OnInit {
   constructor( public firebaseService : FirebaseService) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('user') !== null){
-      this.isSignIn = true;
-    }else{
-      this.isSignIn = false;
-    }
+    
   }
   
-  async onSignup( email : string , password : string){
+  async onSignup(email:string,password:string){
     await this.firebaseService.signup(email,password)
-    if(this.firebaseService.isLoggedIn){
-      this.isSignIn = true;
-    }
+    if(this.firebaseService.isLoggedIn)
+    this.isSignIn = true
   }
 
 

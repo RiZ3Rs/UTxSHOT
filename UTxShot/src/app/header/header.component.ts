@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-header',
@@ -6,14 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  isSignedIn = false
   darkTheme : boolean;
-
-  constructor() {
+  @Output() isLogout = new EventEmitter<void>()
+  constructor(public firebaseService: FirebaseService) {
     this.darkTheme = false;
    }
 
   ngOnInit(): void {
+    if(localStorage.getItem('user')!== null)
+    this.isSignedIn= true
+    else
+    this.isSignedIn = false
   }
 
   changeColor(){
@@ -25,4 +30,10 @@ export class HeaderComponent implements OnInit {
       this.darkTheme = true;
     }
   } 
+
+  logout(){
+    this.firebaseService.logout()
+    this.isLogout.emit()
+    location.reload();
+  }
 }

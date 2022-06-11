@@ -18,8 +18,15 @@
             <img src="../../assets/files/img/logo_UTxShot.png" alt="" [routerLink]="['']" >
         </section>
         <section class = "sdiv">
-            <button class="login-btn" [routerLink]="['/connection']"> Connexion </button>
+            <div *ngIf="!isSignedIn">
+                    <button class="login-btn" [routerLink]="['/connection']"> Se connecter </button>
+            </div>
+            <div *ngIf="isSignedIn">
+                    <button class="login-btn"  (click)="logout()"> Se déconnecter </button>
+                    <button class="login-btn"> Voir profil </button>
+            </div>
         </section>
+        
     </div>
     <div class = "nav-bar">
         <button [routerLink]="['/lieux']"> Lieux </button>

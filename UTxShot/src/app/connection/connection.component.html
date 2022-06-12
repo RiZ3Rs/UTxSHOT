@@ -1,8 +1,19 @@
-<div *ngIf="!isSignedIn">
+<div>
     <div class="container-fluid">
         <div class="row no-gutter">
             <!-- The image half -->
-            <div class="col-md-6 d-none d-md-flex bg-image"></div>
+            <div class="col-md-6 d-none d-md-flex bg-image">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="../../assets/files/img/logo_UTxShot1.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../../assets/files/img/logo_UTxShot2.png" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                  </div>
+            </div>
 
 
             <!-- The content half -->
@@ -13,14 +24,13 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-10 col-xl-7 mx-auto">
-                                <h3 class="display-4">Connectez-vous à votre compte <br> {{isSignedIn}}</h3>
-                                <p class="text-muted mb-4">Si vous avez déjà un compte, connectez-vous pour profiter pleinement du site.</p>
+                                <h2 >Connectez-vous a votre compte UTxSHOT</h2>
                                     <div class="form-group mb-3">
-                                        <input required class="input" #email>
+                                        <input type="email" required class="input" #email>
                                         <label for="email" class="input-label"> Adressse email</label>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <input #password required class="input">
+                                        <input type="password" #password required class="input">
                                         <label for="mdp" class="input-label "> Mot de passe </label>
                                     </div>
                                     <div class="custom-control custom-checkbox mb-3">
@@ -49,6 +59,4 @@
         </div>
     </div>
 </div>
-
-<app-home *ngIf="isSignedIn"></app-home>
 

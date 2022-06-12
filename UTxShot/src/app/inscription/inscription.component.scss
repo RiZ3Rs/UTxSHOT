@@ -1,0 +1,60 @@
+.form-group{
+    position: relative;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:  center;
+    
+    background-color: var(--backColor);
+}
+
+.user-info
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.use-info-input{
+    padding: 1em;
+    color: var(--fontColor1);
+    position: relative;
+}
+
+.input{
+    padding: 5px;
+    border: none;
+    border-radius: var(--minRadius);
+    font : inherit;
+    color: var(--blue);
+    background-color: var(--backColor);
+    outline: 2px solid var(--blue);
+}
+
+.input-label{
+    position: absolute;
+    top : 0;
+    left: 0;
+    transform: translate(35px,20px);
+    transition: transform .25s;
+}
+
+.input:focus+.input-label,
+.input:valid+.input-label{
+    transform: translate(35px,0px) scale(.8);
+    color: var(--orange);
+    padding-inline: 5px;
+    background-color: var(--backColor);
+}
+
+.input:is(:focus,:valid){
+    outline-color: var(--orange);
+}
+
+.icon{
+    width: 2em;
+    height: 2em;
+}

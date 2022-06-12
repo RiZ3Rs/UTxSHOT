@@ -28,6 +28,7 @@
     left: 0;
     transform: translate(10px,10px);
     transition: transform .25s;
+    background-color: var(--backColor);
 }
 
 .input:focus+.input-label,
@@ -39,6 +40,7 @@
 }
 
 .input:is(:focus,:valid){
+    background-color: var(--backColor);
     outline-color: var(--orange);
 }
 

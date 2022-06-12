@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -8,12 +9,14 @@ import { FirebaseService } from '../services/firebase.service';
 })
 export class ConnectionComponent implements OnInit {
   isSignedIn = false
-  constructor( public firebaseService : FirebaseService) { }
+  constructor( public firebaseService : FirebaseService,private router : Router) { }
   ngOnInit(){
-    if(localStorage.getItem('user')!== null)
-    this.isSignedIn= true
-    else
-    this.isSignedIn = false
+    if(localStorage.getItem('user')!== null){
+      this.isSignedIn= true
+      this.router.navigate(['/']);
+    }else{
+      this.isSignedIn = false
+    }
   }
   async onSignin(email:string,password:string){
     await this.firebaseService.signin(email,password);

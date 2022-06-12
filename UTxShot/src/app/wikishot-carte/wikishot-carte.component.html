@@ -1,0 +1,13 @@
+<div class = "card" (click)="goOnDetail()">
+    <div class = "images">
+      <img src="{{article.image[0]}}" alt="...">
+    </div>
+    <p class="titre"> {{article.titre}}</p>
+    <div class = "description">
+      <p> Taille : {{article.taille}} cm</p>
+      <p> vitesse balle : {{article.puissance}} km/h</p>
+      <p *ngIf="article.viseur; else viseurNon"> Viseur : oui </p>
+      <ng-template #viseurNon> Viseur : non </ng-template>
+      <p> Capacité chargeur : {{article.cap_chargeur}}</p>
+    </div>
+</div>

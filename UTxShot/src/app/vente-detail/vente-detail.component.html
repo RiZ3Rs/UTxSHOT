@@ -1,6 +1,7 @@
 <section class= "body-section">
     <div class = "detail">
       <p class="titre"> {{article.titre}}</p>
+      <div class="content">
         <div *ngIf="nbImage()>1;else uniqueImage" id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button *ngIf="otherImage(0)" type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -49,6 +50,7 @@
             <p> note vendeur :</p>
           </div>
         </div>
+      </div>
     </div>
     
 </section>

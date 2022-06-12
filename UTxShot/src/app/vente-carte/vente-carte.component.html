@@ -1,8 +1,8 @@
-<div class = "card" (click)="goOnDetail()">
+<!-- <div class = "card" (click)="goOnDetail()">
     <div class = "images">
       <img src="{{article.image[0]}}" alt="...">
     </div>
-    <p class="titre"> {{article.titre}}</p>
+    
     <div class = "description">
       <p> Taille : {{article.taille}} cm</p>
       <p> vitesse balle : {{article.puissance}} km/h</p>
@@ -20,4 +20,16 @@
       <p class = 'prix'> {{article.prix}}€ </p>
       <p> note vendeur :</p>
     </div>
+</div> -->
+<div class="carte">
+  <p class="titre"> {{article.titre}}</p>
+  <div class = "content" (click)="goOnDetail()">
+    <img src="{{article.image[0]}}" alt="...">
+    <div class="details">
+        <p> Etat  : {{article.etat}}</p>
+        <p *ngIf="article.custom ; else customNon"> Customisé : oui</p>
+        <ng-template #customNon> Customisé : non</ng-template>
+        <p> Munitions : {{article.munitions}}</p>
+    </div>
+  </div>
 </div>

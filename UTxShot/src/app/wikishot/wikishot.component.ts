@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from '../models/article.model';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-wikishot',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WikishotComponent implements OnInit {
 
-  constructor() { }
+  ArticleArray : Article[] = []
+
+  constructor(service: ArticleService) {
+    this.ArticleArray = service.getProducts()
+  }
 
   ngOnInit(): void {
+
   }
 
 }

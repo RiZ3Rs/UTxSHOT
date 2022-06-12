@@ -20,6 +20,8 @@ import { WikishotComponent } from './wikishot/wikishot.component';
 import { FirebaseService } from './services/firebase.service';
 import { WikishotCarteComponent } from './wikishot-carte/wikishot-carte.component';
 import { FormVenteComponent } from './form-vente/form-vente.component';
+import { ProfileComponent } from './profile/profile.component';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { FormVenteComponent } from './form-vente/form-vente.component';
     VentesComponent,
     WikishotComponent,
     WikishotCarteComponent,
-    FormVenteComponent
+    FormVenteComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

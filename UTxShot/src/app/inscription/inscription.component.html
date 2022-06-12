@@ -47,6 +47,17 @@
 			<label for="email" class="input-label"> Téléphone</label>
 		</div>
 	</div>
+	<div class="user-info">
+		<div class ="souv">
+			<label for="souv" class="toggler">
+				<input type="checkbox" id ="souv" #souv>
+				<span class="ball"></span>
+				<i class ="ri-cross-line sun"></i>
+				<i class ="ri-sun-line sun"></i>
+			</label>
+			<p class="ball-text"> Entreprise ou  Professionnel </p>
+		</div>
+	</div>
 
 	<div class="form-group">
         <button type="submit" (click)="onSignup(email.value,mdp1.value)" class="btn btn-primary btn-block"> Créer le compte  </button>

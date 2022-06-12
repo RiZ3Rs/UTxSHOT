@@ -10,6 +10,8 @@ import { ArticleService } from '../services/article.service';
 })
 export class VenteDetailComponent implements OnInit {
   article! : Article;
+  modif : boolean = false;
+  isLiked : boolean = false;
 
   constructor(service: ArticleService,private router : ActivatedRoute) { 
     this.article = service.getProduct(parseInt(this.router.snapshot.paramMap.get('id') || '0'))
@@ -30,6 +32,22 @@ export class VenteDetailComponent implements OnInit {
   nbImage() : number{
     return this.article.image.length
     
+  }
+
+  modifVente(){
+    if(this.modif == false){
+      this.modif = true;
+    }else{
+      this.modif = false;
+    }
+  }
+
+  like(){
+    if(this.isLiked == false){
+      this.isLiked = true;
+    }else{
+      this.isLiked = false;
+    }
   }
 
 

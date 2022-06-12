@@ -141,7 +141,13 @@
 }
 
 img{
-    max-height: 4rem;
+    height: 4rem;
+    margin-top: 0.1rem ;
+    margin-bottom: 0.1rem ;
+    &:hover{
+        height: 4.2rem;
+        margin: 0;
+    }
 }
 
 
@@ -175,13 +181,20 @@ button{
     color : var(--fontColor1);
     border : solid 0px var(--blue);
     border-radius: var(--minRadius);
-    min-width: 60%;
+    margin-left: 3em;
 
-    box-shadow: 0px 0px 8px var(--shadow);
+    box-shadow: 0px 0px 6px var(--shadow);
 
     &:hover{
-        border : solid 1px var(--white);
+        box-shadow: 0px 0px 10px 2px var(--shadow);
     }
+}
+
+.profile{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2em;
 }
 
 
@@ -196,7 +209,7 @@ button{
     width: 54px;
     height: 26px;
     border:  2px solid var(--butonCborder);
-    background-color: var(--white);
+    background-color: none;
     box-shadow: 0px 0px 8px var(--shadow);
     border-radius: 30px;
     position: relative;
@@ -204,7 +217,9 @@ button{
     margin-right: 10px;
 }
 
-.ball{
+.ball,
+.fa-sun,
+.fa-moon{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -223,6 +238,14 @@ button{
 
 #checkbox:checked + .ball{
     transform: translate(29px,-50%);
+}
+
+.fa-sun{
+    left: 4px;
+}
+
+.fa-moon{
+    right: 4px;
 }
 
 .souv{

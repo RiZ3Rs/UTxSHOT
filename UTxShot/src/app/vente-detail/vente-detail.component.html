@@ -1,5 +1,9 @@
 <section class= "body-section">
     <div class = "detail">
+      <div class="nav-button">
+        <button class="button-nav" [routerLink]="['/ventes']"><i class="fa-solid fa-chevron-left"></i> Retour aux ventes </button>
+        <button class="button-nav" (click)="modifVente()"><i class="fa-solid fa-pencil"></i> Modifer l'annonce </button>
+      </div>
       <p class="titre"> {{article.titre}}</p>
       <div class="content">
         <div *ngIf="nbImage()>1;else uniqueImage" id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -31,7 +35,7 @@
         <ng-template #uniqueImage>
             <img src="{{article.image[0]}}"  alt="...">
         </ng-template>
-        <div class = "card">
+        <div *ngIf="!modif" class = "card">
           <div class = "description">
             <p> Taille : {{article.taille}} cm</p>
             <p> vitesse balle : {{article.puissance}} km/h</p>
@@ -50,6 +54,64 @@
             <p> note vendeur :</p>
           </div>
         </div>
+
+
+        <section *ngIf="modif" class="card">
+          <div class="user-info">
+            <i class="fa-solid fa-maximize"></i>
+            <div class="use-info-input">
+              <input type="text" required class="input" #nom>
+              <label for="email" class="input-label"> taille (cm)</label>
+            </div>
+          </div>
+
+          <div class="user-info">
+            <i class="fa-solid fa-bolt"></i>
+            <div class="use-info-input">
+              <input type="text" required class="input" #nom>
+              <label for="email" class="input-label"> vitesse balle (m/s)</label>
+            </div>
+          </div>
+
+          <div class="user-info">
+            <div class ="souv">
+              <label for="souv" class="toggler">
+                <input type="checkbox" id ="souv" #souv>
+                <span class="ball"></span>
+                <i class="fa-solid fa-xmark"></i>
+                <i class="fa-solid fa-check"></i>
+              </label>
+              <p class="ball-text"><i class="fa-solid fa-crosshairs"></i> viseur </p>
+            </div>
+          </div>
+
+          <div class="user-info">
+            <i class="fa-brands fa-stack-overflow"></i> 
+            <div class="use-info-input">
+              <input type="text" required class="input" #nom>
+              <label for="email" class="input-label">capacité chargeur (nb)</label>
+            </div>
+          </div>
+
+          <div class="user-info">
+            <i class="fa-solid fa-euro-sign"></i>
+            <div class="use-info-input">
+              <input type="text" required class="input" #nom>
+              <label for="email" class="input-label">  prix (€)</label>
+            </div>
+          </div>
+
+        
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
+          </div> <!-- form-group// -->      
+        
+        </section>
+      </div>
+      <div class="nav-button">
+        <button class="button-nav" *ngIf="!isLiked" (click)="like()"><i class="fa-regular fa-heart"></i> </button>
+        <button class="button-nav" *ngIf="isLiked" (click)="like()"><i class="fa-solid fa-heart"></i> </button>
+        <button class="button-nav" [routerLink]="['/parties']"><i class="fa-solid fa-pencil"></i> Modifer l'annonce </button>
       </div>
     </div>
     

@@ -5,8 +5,8 @@
                 <label for="checkbox" (input)="changeColor()" class="toggler">
                     <input type="checkbox" id ="checkbox">
                     <span class="ball"></span>
-                    <i class ="ri-cross-line sun"></i>
-                    <i class ="ri-sun-line sun"></i>
+                    <i class="fa-solid fa-sun"></i>
+                    <i class="fa-solid fa-moon"></i>
                 </label>
             </div>
             <div class = "search">
@@ -18,12 +18,13 @@
             <img src="../../assets/files/img/logo_UTxShot.png" alt="" [routerLink]="['']" >
         </section>
         <section class = "sdiv">
-            <div *ngIf="!isSignedIn">
-                    <button class="login-btn" [routerLink]="['/connection']"> Se connecter </button>
+            <div class="profile" *ngIf="!isSignedIn">
+                    <button class="login-btn" [routerLink]="['/connection']"> <i class="fa-solid fa-right-to-bracket"></i> Se connecter </button>
             </div>
-            <div *ngIf="isSignedIn">
-                    <button class="login-btn"  (click)="logout()"> Se déconnecter </button>
-                    <button class="login-btn"> Voir profil </button>
+            <div class="profile" *ngIf="isSignedIn">
+                <button class="login-btn" [routerLink]="['/profil']"> <i class="fa-solid fa-user"></i>  Voir profil </button>
+                <button class="login-btn"  (click)="logout()"> <i class="fa-solid fa-person-through-window"></i> </button>
+                    
             </div>
         </section>
         

@@ -17,6 +17,7 @@
 
     color: var(--blue);
     margin-bottom: 2rem ;
+    padding-right: 5em;
 }
 
 
@@ -39,7 +40,7 @@
     padding: 0px;
     padding-top: 3em;
     padding-bottom: 3em;
-    min-height: 100%;
+    min-height: 10em;
 
     border: solid 2px var(--headPrincipal);
     border-left: none;
@@ -74,7 +75,7 @@
     background-color: var(--backColor);
 
     box-sizing: border-box;
-    width: 90%;
+    width: 85%;
     margin: 0px;
     padding: 0px;
     padding-top: 5em;

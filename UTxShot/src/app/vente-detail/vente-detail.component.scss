@@ -21,9 +21,9 @@
     align-items: center;
 
     background-color: var(--backColor);
-    width: 80%;
+    width: 60%;
     min-height: 35em;
-    box-shadow: 0px -2px 12px 2px var(--shadow) ;
+    box-shadow: 0px 0px 6px 0px var(--shadow) ;
 
 }
 
@@ -41,8 +41,8 @@
 }
 
 .carousel{
-    width: 60%!important;
-    height: 60%!important;
+    width: 55%!important;
+    height: 55%!important;
     border-right: solid 1px var(--black);
 }
 

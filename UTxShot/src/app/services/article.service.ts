@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Article } from '../models/article.model';
 import { User } from '../models/user.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class ArticleService {
   Array : Article[] = []
+
+
 
   constructor() { }
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormVenteComponent } from './form-vente.component';
+import { VenteCreateComponent } from './vente-create.component';
 
-describe('FormVenteComponent', () => {
-  let component: FormVenteComponent;
-  let fixture: ComponentFixture<FormVenteComponent>;
+describe('VenteCreateComponent', () => {
+  let component: VenteCreateComponent;
+  let fixture: ComponentFixture<VenteCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormVenteComponent ]
+      declarations: [ VenteCreateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormVenteComponent);
+    fixture = TestBed.createComponent(VenteCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

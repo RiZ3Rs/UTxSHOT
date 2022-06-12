@@ -19,8 +19,8 @@ import { VentesComponent } from './ventes/ventes.component';
 import { WikishotComponent } from './wikishot/wikishot.component';
 import { FirebaseService } from './services/firebase.service';
 import { WikishotCarteComponent } from './wikishot-carte/wikishot-carte.component';
-import { FormVenteComponent } from './form-vente/form-vente.component';
 import { ProfileComponent } from './profile/profile.component';
+import { VenteCreateComponent } from './vente-create/vente-create.component';
 
 
 
@@ -39,8 +39,8 @@ import { ProfileComponent } from './profile/profile.component';
     VentesComponent,
     WikishotComponent,
     WikishotCarteComponent,
-    FormVenteComponent,
-    ProfileComponent
+    ProfileComponent,
+    VenteCreateComponent
   ],
   imports: [
     BrowserModule,

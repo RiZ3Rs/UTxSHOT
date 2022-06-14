@@ -10,6 +10,7 @@ import { FirebaseService } from '../services/firebase.service';
 export class ConnectionComponent implements OnInit {
   isSignedIn = false
   constructor( public firebaseService : FirebaseService,private router : Router) { }
+
   ngOnInit(){
     if(localStorage.getItem('user')!== null){
       this.isSignedIn= true
@@ -18,6 +19,7 @@ export class ConnectionComponent implements OnInit {
       this.isSignedIn = false
     }
   }
+  
   async onSignin(email:string,password:string){
     await this.firebaseService.signin(email,password);
     if(this.firebaseService.isLoggedIn)

@@ -1,9 +1,9 @@
 export class User {
     nom : string;
-    prenom :string;
+    prenom :string ;
     pseudo : string;
     image_profil : string;
-    id : string;
+    id : string ;
     mdp :string;
     date_naissance: Date;
     note_vendeur : number;

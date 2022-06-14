@@ -21,7 +21,10 @@ import { FirebaseService } from './services/firebase.service';
 import { WikishotCarteComponent } from './wikishot-carte/wikishot-carte.component';
 import { ProfileComponent } from './profile/profile.component';
 import { VenteCreateComponent } from './vente-create/vente-create.component';
+import { TestComponent } from './test/test/test.component';
 
+
+import { TestService } from './test/test.service';
 
 
 @NgModule({
@@ -40,16 +43,18 @@ import { VenteCreateComponent } from './vente-create/vente-create.component';
     WikishotComponent,
     WikishotCarteComponent,
     ProfileComponent,
-    VenteCreateComponent
+    VenteCreateComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
   ],
   providers: [
-    FirebaseService
+    FirebaseService,
+    TestService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   isSignedIn = false
   darkTheme : boolean;
   @Output() isLogout = new EventEmitter<void>()
+  
   constructor(public firebaseService: FirebaseService) {
     this.darkTheme = false;
    }

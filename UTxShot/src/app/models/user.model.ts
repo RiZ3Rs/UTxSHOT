@@ -1,21 +1,15 @@
 export class User {
-    nom : string;
-    prenom :string ;
-    pseudo : string;
-    image_profil : string;
-    id : string ;
-    mdp :string;
-    date_naissance: Date;
-    note_vendeur : number;
+    pro : boolean = false;
+    note : number = 0; 
     
-    constructor(nom : string, prenom :string, pseudo : string, image_profil : string, id : string, mdp :string, date_naissance: Date, note_vendeur : number) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.pseudo = pseudo;
-        this.image_profil = image_profil;
-        this.id =id ;
-        this.mdp = mdp;
-        this.date_naissance = date_naissance;
-        this.note_vendeur = note_vendeur;
+    constructor(
+        public email:string,
+        public nom: string, 
+        public prenom :string, 
+        public pseudo : string, 
+        public image_profil : string,
+        public userID : string, 
+        ) {
+        
     }
   }

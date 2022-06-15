@@ -2,55 +2,64 @@
 	<h4 class="title">Créez votre compte</h4>
 	
 	<p class="indication">Enregistrez vos information juste en dessous</p>
-	<div class="user-info">
-		<i class="fa-solid fa-user"></i>
-		<div class="use-info-input">
-			<input type="text" required class="input" #nom>
-			<label for="email" class="input-label"> Nom</label>
-		</div>
-	</div>
-	<div class="user-info">
-		<i class="fa-solid fa-user"></i>
-		<div class="use-info-input">
-			<input type="text" required class="input" #prenom>
-			<label for="email" class="input-label"> Prenom</label>
-		</div>
-	</div>
 
-	<div class="user-info">
-		<i class="fa-solid fa-at"></i>
-		<div class="use-info-input">
-			<input type="email" required class="input" #email>
-			<label for="email" class="input-label"> Email</label>
-		</div>
-	</div>
+	<p  class="indication error" > {{erreur}}</p>
 
-	<div class="user-info">
-		<i class="fa-solid fa-phone"></i>
-		<div class="use-info-input">
-			<input type="tel" required class="input" #phone>
-			<label for="phone" class="input-label"> Téléphone</label>
+	<div class="form">
+		<div class="form-sub" >
+			<div class="user-info">
+				<i class="fa-solid fa-user"></i>
+				<div class="use-info-input">
+					<input type="text"  [(ngModel)]="this.user.nom" name="nom" required class="input" #nom>
+					<label for="email" class="input-label"> Nom</label>
+				</div>
+			</div>
+			<div class="user-info">
+				<i class="fa-solid fa-user"></i>
+				<div class="use-info-input">
+					<input type="text" [(ngModel)]="user.prenom" name="prenom" required class="input" #prenom>
+					<label for="email" class="input-label"> Prenom</label>
+				</div>
+			</div>
+		
+			<div class="user-info">
+				<i class="fa-solid fa-user"></i>
+				<div class="use-info-input">
+					<input type="text" [(ngModel)]="user.pseudo" name="peusdo" required class="input" #pseudo>
+					<label for="email" class="input-label"> Pseudo</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-sub" >
+			<div class="user-info">
+				<i class="fa-solid fa-at"></i>
+				<div class="use-info-input">
+					<input type="email" [(ngModel)]="user.email" name="email" required class="input" #email>
+					<label for="email" class="input-label"> Email</label>
+				</div>
+			</div>
+		
+			<div class="user-info">
+				<i class="fa-solid fa-key"></i>
+				<div class="use-info-input">
+					<input type="password" [(ngModel)]="this.MDP1"  name="mdp1" required class="input" #mdp1>
+					<label for="email" class="input-label"> Mot de passe</label>
+				</div>
+			</div>
+			<div class="user-info">
+				<i class="fa-solid fa-key"></i>
+				<div class="use-info-input">
+					<input type="password" [(ngModel)]="this.MDP2" name="mdp2" required class="input" #mdp2>
+					<label for="email" class="input-label"> Confirmer mot de passe</label>
+				</div>
+			</div>
 		</div>
 	</div>
-
-	<div class="user-info">
-		<i class="fa-solid fa-key"></i>
-		<div class="use-info-input">
-			<input type="password" required class="input" #mdp1>
-			<label for="email" class="input-label"> Téléphone</label>
-		</div>
-	</div>
-	<div class="user-info">
-		<i class="fa-solid fa-key"></i>
-		<div class="use-info-input">
-			<input type="password" required class="input" #mdp2>
-			<label for="email" class="input-label"> Téléphone</label>
-		</div>
-	</div>
+	
 	<div class="user-info">
 		<div class ="souv">
 			<label for="souv" class="toggler">
-				<input type="checkbox" id ="souv" #souv>
+				<input type="checkbox" [(ngModel)]="user.pro" name="pro" id ="souv" #souv>
 				<span class="ball"></span>
 				<i class ="ri-cross-line sun"></i>
 				<i class ="ri-sun-line sun"></i>
@@ -60,7 +69,7 @@
 	</div>
 
 	<div class="form-group">
-        <button type="submit" (click)="onSignup(email.value,mdp1.value)" class="btn btn-primary btn-block"> Créer le compte  </button>
+        <button type="submit" (click)="inscription()" class="btn btn-primary btn-block"> Créer le compte  </button>
     </div> <!-- form-group// -->      
     <p class="text-center">Déjà un compte? <a [routerLink]="'/connection'">Enregistrez-vous</a> </p>
 

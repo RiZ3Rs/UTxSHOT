@@ -2,7 +2,21 @@
     position: relative;
 }
 
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 50%;
+    padding-bottom: 1em;
+}
+.error{
+    color : red;
+    font-weight: bold;
+}
+
 section{
+    padding-top: 3em;
     display: flex;
     flex-direction: column;
     justify-content: center;

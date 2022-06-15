@@ -8,13 +8,22 @@ import { Test } from './test';
 })
 export class TestService {
    testCollection!: AngularFirestoreCollection<Test>;
-   test : Observable<any[]>;
+   test : Observable<Test[]>;
 
   constructor( public afs : AngularFirestore) { 
-    this.test = this.afs.collection('Test').valueChanges();
+    this.testCollection = this.afs.collection('Test')
+    this.test = this.testCollection.valueChanges();
   }
 
   getTests(){
     return this.test
+  }
+
+  addTest(test : Test){
+    this.afs.collection('Test').add({ 
+      userID : test.id,
+      title : test.title,
+      description : test.description
+  })
   }
 }

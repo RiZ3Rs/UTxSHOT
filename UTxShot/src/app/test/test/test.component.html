@@ -1,4 +1,4 @@
 <ul>
-    <li *ngFor="let value of test">{{ value.title}}</li>
+    <li *ngFor="let value of test; let i = index">{{ value.title}}  | {{ value.description}} <button type="button" (click)="updateObject(i)" class="btn btn-outline-primary">update</button></li>
 </ul>
-<button type="button" (click)="addObject()" class="btn btn-outline-primary">Primary</button>
+<button type="button" (click)="addObject()" class="btn btn-outline-primary">add</button>

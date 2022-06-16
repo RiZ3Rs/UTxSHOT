@@ -15,7 +15,7 @@ export class TestComponent implements OnInit {
   constructor(private testService :TestService, public service : FirebaseService) { }
 
   ngOnInit(): void {
-    this.testService.getTestbyInfo('titl').subscribe(test =>{
+    this.testService.getTestbyInfo('title').subscribe(test =>{
       this.test = test;
     } )
     this.userID = this.service.getUserID()
@@ -25,6 +25,11 @@ export class TestComponent implements OnInit {
   addObject(){
     let test = new Test(this.userID,'title', 'description');
     this.testService.addTest(test)
+  }
+
+  updateObject(index:number){
+    this.test[index].description = 'new description'
+    this.testService.updateTest(this.test[index])
   }
   
 

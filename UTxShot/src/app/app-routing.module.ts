@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'connection', component:ConnectionComponent},
   {path:'inscription', component:InscriptionComponent},
   {path: 'article/:id', component: VenteDetailComponent },
-  {path: 'profil', component: ProfileComponent}
+  {path: 'profil/:id', component: ProfileComponent}
   ];
 
 @NgModule({

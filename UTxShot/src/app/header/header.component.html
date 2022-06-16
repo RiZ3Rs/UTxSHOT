@@ -22,7 +22,7 @@
                     <button class="login-btn" [routerLink]="['/connection']"> <i class="fa-solid fa-right-to-bracket"></i> Se connecter </button>
             </div>
             <div class="profile" *ngIf="isSignedIn">
-                <button class="login-btn" [routerLink]="['/profil']"> <i class="fa-solid fa-user"></i>  Voir profil </button>
+                <button class="login-btn" (click)="goProfile()"> <i class="fa-solid fa-user"></i>  Voir profil </button>
                 <button class="login-btn"  (click)="logout()"> <i class="fa-solid fa-person-through-window"></i> </button>
                     
             </div>

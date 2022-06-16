@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   darkTheme : boolean;
   @Output() isLogout = new EventEmitter<void>()
   
-  constructor(public firebaseService: FirebaseService) {
+  constructor(public firebaseService: FirebaseService, public router : Router) {
     this.darkTheme = false;
    }
 
@@ -36,5 +37,9 @@ export class HeaderComponent implements OnInit {
     this.firebaseService.logout()
     this.isLogout.emit()
     location.reload();
+  }
+
+  goProfile(){
+    this.router.navigate(['/', 'profil', this.firebaseService.getUserID()]);
   }
 }

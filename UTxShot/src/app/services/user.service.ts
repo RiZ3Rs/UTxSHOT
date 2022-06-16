@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
 @Injectable({
@@ -18,6 +18,11 @@ export class UserService {
 
   getUsers(): Observable<User[]>{
     return this.afs.collection<User>('User').valueChanges()
+  }
+
+  getUserById(id : string){
+    return this.getUsers().pipe(map((users : User[]) =>
+      users.filter((user : User) => user.userID === id)))
   }
 
   createUser(user : User){

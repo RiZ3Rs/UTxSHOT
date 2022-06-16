@@ -62,6 +62,4 @@ export class InscriptionComponent implements OnInit {
         this.route.navigate([''])
       }
   }
-
-
 }

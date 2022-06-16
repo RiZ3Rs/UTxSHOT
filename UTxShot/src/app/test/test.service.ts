@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { Test } from './test';
 
 @Injectable({
@@ -17,6 +18,14 @@ export class TestService {
 
   getTests(){
     return this.test
+  }
+
+  getTestbyInfo(info : string){
+    this.test = this.getTests().pipe(map((tests : Test[]) =>
+      tests.filter((unTests : Test) => unTests.title === info)
+       )
+      )
+      return this.test
   }
 
   addTest(test : Test){

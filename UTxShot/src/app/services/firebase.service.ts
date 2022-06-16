@@ -28,10 +28,7 @@ export class FirebaseService {
   }
 
   getUserID() : string{
-    console.log(localStorage.getItem('user'))
-    console.log(localStorage.getItem('user')?.length)
     let user = JSON.parse( localStorage["user"] );
-    console.log(user['uid'])
     return user['uid']
   }
 }

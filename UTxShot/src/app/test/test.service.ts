@@ -11,6 +11,7 @@ export class TestService {
    testCollection!: AngularFirestoreCollection<Test>;
    test : Observable<Test[]>;
    testDoc!: AngularFirestoreDocument<Test>;
+   
 
   constructor( public afs : AngularFirestore) { 
     this.testCollection = this.afs.collection('Test')
@@ -30,7 +31,7 @@ export class TestService {
 
   getTestbyInfo(info : string){
     this.test = this.getTests().pipe(map((tests : Test[]) =>
-      tests.filter((unTests : Test) => unTests.title === info)
+      tests.filter((unTests : Test) => unTests.title === info && unTests.description === 'descript1' )
        )
       )
       return this.test
@@ -47,17 +48,17 @@ export class TestService {
   addTest(test : Test){
     this.afs.collection('Test').add({ 
       title : test.title,
-      description : test.description
+      description : test.description,
+      image : test.image
   })
   }
 
   deleteTest(test: Test){
-    this.testDoc = this.afs.doc(`Test/${test.id}`);
+    this.testDoc = this.afs.doc('/Test/'+test.id);
     this.testDoc.delete();
   }
 
   updateTest(test: Test){
-    console.log('/Test/'+test.id)
     this.testDoc = this.afs.doc('/Test/'+test.id);
     this.testDoc.update({
       title : test.title,

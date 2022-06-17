@@ -53,9 +53,16 @@
 					<label for="email" class="input-label"> Confirmer mot de passe</label>
 				</div>
 			</div>
+			
 		</div>
 	</div>
-	
+	<div class="user-info">
+		<i class="fa-solid fa-image"></i>
+		<div class="use-info-input">
+			<input type="file" required class="input"  name="inputfile" (change)="addFile($event)" placeholder="image" #file>
+			<!-- <label for="email" class="input-label">image de profil </label> -->
+		</div>
+	</div>
 	<div class="user-info">
 		<div class ="souv">
 			<label for="souv" class="toggler">

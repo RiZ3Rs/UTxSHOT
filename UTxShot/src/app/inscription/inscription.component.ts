@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { FirebaseService } from '../services/firebase.service';
 import { UserService } from '../services/user.service';
@@ -15,8 +17,10 @@ export class InscriptionComponent implements OnInit {
   MDP1! : string;
   MDP2! : string;
   erreur : string = ''
+  currentImageUrl!: Observable<string | null>;
+  fileToAdd !: File;
 
-  constructor( public firebaseService : FirebaseService,private userService :UserService,private route:Router) { 
+  constructor(private storage : AngularFireStorage, public firebaseService : FirebaseService,private userService :UserService,private route:Router) { 
     
   }
 
@@ -51,6 +55,7 @@ export class InscriptionComponent implements OnInit {
   }
   
   async onSignup(email:string,password:string){
+    
     await this.firebaseService.signup(email,password).catch( res =>{
       this.erreur = res.message;
     })
@@ -58,8 +63,24 @@ export class InscriptionComponent implements OnInit {
         
         this.isSignIn = true
         this.user.userID =  this.firebaseService.getUserID()
-        this.userService.createUser(this.user)
-        this.route.navigate([''])
+        if(this.fileToAdd != null){
+          this.storage.upload('/Users/user:'+this.user.userID, this.fileToAdd).catch(res =>{
+            console.log(res)
+          })
+          const ref = this.storage.ref('/Users/user:'+this.user.userID);
+          ref.getDownloadURL().subscribe(res =>{
+              this.user.image_profil = res
+              this.userService.createUser(this.user)
+              this.route.navigate([''])
+          })
+        }else{
+          this.userService.createUser(this.user)
+          this.route.navigate([''])
+        }
       }
+  }
+
+  addFile(event : any){
+    this.fileToAdd = event.target.files[0]
   }
 }

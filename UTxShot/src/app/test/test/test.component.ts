@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Observable } from 'rxjs';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Test } from '../test';
 import { TestService } from '../test.service';
@@ -11,8 +13,19 @@ import { TestService } from '../test.service';
 export class TestComponent implements OnInit {
   test !: Test[];
   userID! : string;
+  newTest : Test = new Test;
+  currentImageUrl!: Observable<string | null>;
+  fileToAdd !: File;
 
-  constructor(private testService :TestService, public service : FirebaseService) { }
+  addFile(event :any){
+    this.fileToAdd = event.target.files[0]
+    const filePath = this.fileToAdd.name;
+    
+  }
+
+  constructor(private testService :TestService, public service : FirebaseService, private storage : AngularFireStorage) {
+    
+   }
 
   ngOnInit(): void {
     this.testService.getTestbyInfo('title').subscribe(test =>{
@@ -23,16 +36,42 @@ export class TestComponent implements OnInit {
   }
 
   addObject(){
-    let test = new Test(this.userID,'title', 'description');
-    this.testService.addTest(test)
+
+    if(this.fileToAdd != null){
+      this.newTest.title = 'title'
+      this.newTest.description = 'descript1'
+
+    const task = this.storage.upload('/Users/user:'+this.userID, this.fileToAdd).catch(res =>{
+      console.log(res)
+    })
+
+    const ref = this.storage.ref('/Users/user:'+this.userID);
+    ref.getDownloadURL().subscribe(res =>{
+        this.currentImageUrl = res
+        if( this.currentImageUrl != null){
+          this.newTest.image = this.currentImageUrl
+          console.log(this.newTest.image)
+          this.testService.addTest(this.newTest)
+        }
+        this.ngOnInit()
+     })
+    }else{
+      window.alert('selectionnez une image')
+    }
   }
 
   updateObject(index:number){
-    this.test[index].description = 'new description'
+    this.test[index].description = this.test[index].id
     this.testService.updateTest(this.test[index])
   }
+
+  deleteObject(index:number){
+    this.testService.deleteTest(this.test[index])
+  }
   
-
-
+  // chooseFile(event : string){
+  //   this.currentImageUrl = event
+    
+  // }
 
 }

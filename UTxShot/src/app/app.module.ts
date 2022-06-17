@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from 'src/environments/environment';
 import { FormsModule } from '@angular/forms';
 
@@ -26,6 +27,8 @@ import { TestComponent } from './test/test/test.component';
 
 
 import { TestService } from './test/test.service';
+import { ProduitService } from './services/produit.service';
+import { ArticleService } from './services/article.service';
 
 
 @NgModule({
@@ -52,11 +55,14 @@ import { TestService } from './test/test.service';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     FormsModule
   ],
   providers: [
     FirebaseService,
-    TestService
+    TestService,
+    ProduitService,
+    ArticleService
   ],
   bootstrap: [AppComponent]
 })

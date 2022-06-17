@@ -1,4 +1,10 @@
 <ul>
-    <li *ngFor="let value of test; let i = index">{{ value.title}}  | {{ value.description}} <button type="button" (click)="updateObject(i)" class="btn btn-outline-primary">update</button></li>
+    <li *ngFor="let value of test; let i = index">{{ value.title}}  | <img [src]="value.image" alt="image profil">{{ value.description}}
+        <button type="button" (click)="updateObject(i)" class="btn btn-outline-primary">update</button>
+        <button type="button" (click)="deleteObject(i)" class="btn btn-outline-danger"> Suppr</button>
+    </li>
 </ul>
-<button type="button" (click)="addObject()" class="btn btn-outline-primary">add</button>
+
+<!-- <input type="file" name="inputfile" (change)="chooseFile(file.value)" #file> -->
+
+<button type="button" (click)="addObject()" class="btn btn-outline-primary">add</button><input type="file" name="inputfile" (change)="addFile($event)" #file>

@@ -29,6 +29,8 @@ import { TestComponent } from './test/test/test.component';
 import { TestService } from './test/test.service';
 import { ProduitService } from './services/produit.service';
 import { ArticleService } from './services/article.service';
+import { ProduitFormComponent } from './form/produit-form/produit-form.component';
+import { ArticleFormComponent } from './form/article-form/article-form.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { ArticleService } from './services/article.service';
     WikishotCarteComponent,
     ProfileComponent,
     VenteCreateComponent,
-    TestComponent
+    TestComponent,
+    ProduitFormComponent,
+    ArticleFormComponent
   ],
   imports: [
     BrowserModule,

@@ -15,13 +15,18 @@
             </div>
         </section>
         <section class = "sdiv">
-            <img src="../../assets/files/img/logo_UTxShot.png" alt="" [routerLink]="['']" >
+            <img class="logo" src="../../assets/files/img/logo_UTxShot.png" alt="" [routerLink]="['']" >
         </section>
         <section class = "sdiv">
             <div class="profile" *ngIf="!isSignedIn">
                     <button class="login-btn" [routerLink]="['/connection']"> <i class="fa-solid fa-right-to-bracket"></i> Se connecter </button>
             </div>
             <div class="profile" *ngIf="isSignedIn">
+                <div *ngIf="comptePro" class ="pro">
+                    <button class="pro-btn" [routerLink]="['/nouveauProduit']"> <i class="fa-solid fa-circle-plus"></i> Produit </button>
+                    <button class="pro-btn" [routerLink]="['/nouveauArticle']"> <i class="fa-solid fa-cart-plus"></i> Vente </button>
+                </div>
+                <img *ngIf="imageDeProfilURL != ''" [src]="imageDeProfilURL" alt="image profil">
                 <button class="login-btn" (click)="goProfile()"> <i class="fa-solid fa-user"></i>  Voir profil </button>
                 <button class="login-btn"  (click)="logout()"> <i class="fa-solid fa-person-through-window"></i> </button>
                     

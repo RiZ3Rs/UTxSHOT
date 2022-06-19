@@ -1,12 +1,15 @@
 export class Produit {
     id?:string;
-    title?:string;
-    description?:string
+    nom_produit?:string;
+    description? : string;
+    puissance? : number;
+    taille? : number;
+    capacite_chargeur? : number;
+    note_produit : number =0;
+    temps_recharge? : number;
+    precision? : number;
 
-    constructor(id? :string, title? :string, description? : string){
-        this.id = id
-        this.title = title;
-        this.description = description;
+    constructor(){
     }
 
 }

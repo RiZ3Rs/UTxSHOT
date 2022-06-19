@@ -26,6 +26,9 @@
                     <button class="pro-btn" [routerLink]="['/nouveauProduit']"> <i class="fa-solid fa-circle-plus"></i> Produit </button>
                     <button class="pro-btn" [routerLink]="['/nouveauArticle']"> <i class="fa-solid fa-cart-plus"></i> Vente </button>
                 </div>
+                <div *ngIf="!comptePro" class ="pro">
+                    <button class="pro-btn" [routerLink]="['/favoris', this.firebaseService.getUserID()]"><i class="fa-solid fa-heart"></i></button>
+                </div>
                 <img *ngIf="imageDeProfilURL != ''" [src]="imageDeProfilURL" alt="image profil">
                 <button class="login-btn" (click)="goProfile()"> <i class="fa-solid fa-user"></i>  Voir profil </button>
                 <button class="login-btn"  (click)="logout()"> <i class="fa-solid fa-person-through-window"></i> </button>

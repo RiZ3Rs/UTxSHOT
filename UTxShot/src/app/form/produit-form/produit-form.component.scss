@@ -1,0 +1,114 @@
+
+#souv{
+    display: none;
+}
+
+.toggler{
+    display: block;
+    width: 60px;
+    height: 30px;
+    border:  2px solid var(--blue);
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.ball,
+.fa-xmark,
+.fa-check{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.fa-xmark{
+    left: 4px;
+}
+
+.fa-check{
+    right: 4px;
+}
+
+.ball{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    left: 1px;
+    z-index: 10;
+    transition: transform .5s ease-in-out;
+}
+
+#souv:checked + .ball{
+    transform: translate(29px,-50%);
+    background-color: var(--orange);
+}
+
+.souv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: space-around ;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:  center;
+    
+    background-color: var(--backColor);
+}
+
+.user-info
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.use-info-input{
+    padding: 1em;
+    color: var(--fontColor1);
+    position: relative;
+}
+
+.description{
+    .input{
+        height: 12em;
+    }
+}
+
+.input{
+    padding: 5px;
+    width: 25em;
+    border: none;
+    border-radius: var(--minRadius);
+    font : inherit;
+    color: var(--blue);
+    background-color: var(--backColor);
+    outline: 2px solid var(--blue);
+}
+
+.input-label{
+    position: absolute;
+    top : 0;
+    left: 0;
+    transform: translate(35px,20px);
+    transition: transform .25s;
+}
+
+.input:focus+.input-label,
+.input:valid+.input-label{
+    transform: translate(35px,0px) scale(.8);
+    color: var(--orange);
+    padding-inline: 5px;
+    background-color: var(--backColor);
+}
+
+.input:is(:focus,:valid){
+    outline-color: var(--orange);
+}

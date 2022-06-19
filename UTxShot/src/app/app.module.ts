@@ -31,6 +31,7 @@ import { ProduitService } from './services/produit.service';
 import { ArticleService } from './services/article.service';
 import { ProduitFormComponent } from './form/produit-form/produit-form.component';
 import { ArticleFormComponent } from './form/article-form/article-form.component';
+import { FavoriComponent } from './favori/favori.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ArticleFormComponent } from './form/article-form/article-form.component
     VenteCreateComponent,
     TestComponent,
     ProduitFormComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    FavoriComponent
   ],
   imports: [
     BrowserModule,

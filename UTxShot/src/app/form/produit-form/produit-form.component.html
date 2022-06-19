@@ -1,1 +1,86 @@
-<p>produit-form works!</p>
+<section class="card">
+    <div class="user-info">
+        <i class="fa-regular fa-t"></i>
+        <div class="use-info-input">
+            <input type="text" required class="input" #nom>
+            <label for="Nom" class="input-label"> Nom </label>
+        </div>
+    </div>
+
+    <div class="user-info">
+        <i class="fa-regular fa-rectangle-list"></i>
+        <div class="use-info-input description">
+            <textarea name="" required class="input" #descrip></textarea>
+            <label for="descript" class="input-label"> Description </label>
+        </div>
+    </div>
+
+    <div class="user-info">
+        <i class="fa-solid fa-bolt"></i>
+        <div class="use-info-input">
+          <input type="text" required class="input" #nom>
+          <label for="email" class="input-label"> vitesse balle (m/s)</label>
+        </div>
+    </div>
+
+    <div class="user-info">
+      <i class="fa-solid fa-maximize"></i>
+      <div class="use-info-input">
+        <input type="number" min="5" max="150" required class="input" #nom>
+        <label for="email" class="input-label"> taille (cm)</label>
+      </div>
+    </div>
+
+    <div class="user-info">
+      <i class="fa-brands fa-stack-overflow"></i> 
+      <div class="use-info-input">
+        <input type="number" required class="input" #nom>
+        <label for="email" class="input-label">capacité chargeur (nb)</label>
+      </div>
+    </div>
+
+    <div class="user-info">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <div class="use-info-input">
+          <input type="number" required class="input" #nom>
+          <label for="email" class="input-label">temps de recharge (s)</label>
+        </div>
+    </div>
+
+    <div class="user-info">
+        <i class="fa-solid fa-group-arrows-rotate"></i>
+        <div class="use-info-input">
+          <input type="number" min="1" max="10" required class="input" #nom>
+          <label for="email" class="input-label"> Précision /10</label>
+        </div>
+    </div>
+
+    <div class="user-info">
+        <div (click)="noterProduit(1)">
+            <div *ngIf="produit.note_produit >= 1; else star1"> <i class="fa-solid fa-star"></i> </div>
+            <ng-template #star1 > <i class="fa-regular fa-star"></i> </ng-template>
+        </div>
+        <div (click)="noterProduit(2)">
+            <div *ngIf="produit.note_produit >= 2; else star2"> <i class="fa-solid fa-star"></i> </div>
+            <ng-template #star2 > <i class="fa-regular fa-star"></i> </ng-template>
+        </div>
+        <div (click)="noterProduit(3)">
+            <div *ngIf="produit.note_produit >= 3; else star3"> <i class="fa-solid fa-star"></i> </div>
+            <ng-template #star3 > <i class="fa-regular fa-star"></i> </ng-template>
+        </div>
+        <div (click)="noterProduit(4)">
+            <div *ngIf="produit.note_produit >= 4; else star4"> <i class="fa-solid fa-star"></i> </div>
+            <ng-template #star4 > <i class="fa-regular fa-star"></i> </ng-template>
+        </div>
+        <div (click)="noterProduit(5)">
+            <div *ngIf="produit.note_produit >= 5; else star5"> <i class="fa-solid fa-star"></i> </div>
+            <ng-template #star5 > <i class="fa-regular fa-star"></i> </ng-template>
+        </div>
+      </div>
+
+  
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
+    </div> <!-- form-group// -->      
+  
+  </section>

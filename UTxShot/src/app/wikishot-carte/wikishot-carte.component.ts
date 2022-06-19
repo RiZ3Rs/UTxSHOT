@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Article } from '../models/article.model';
+import { Produit } from '../models/produit.model';
 
 @Component({
   selector: 'app-wikishot-carte',
@@ -9,14 +10,14 @@ import { Article } from '../models/article.model';
 })
 export class WikishotCarteComponent implements OnInit {
 
-  @Input() article! : Article;
+  @Input() produit! : Produit;
   constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
-  goOnDetail(){
-    this.router.navigate(['/', 'article', this.article.id]);
-  }
+  // goOnDetail(){
+  //   this.router.navigate(['/', 'article', this.article.id]);
+  // }
 
 }

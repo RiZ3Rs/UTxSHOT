@@ -112,3 +112,8 @@ section{
 .input:is(:focus,:valid){
     outline-color: var(--orange);
 }
+
+.error{
+    color : red;
+    font-weight: bold;
+}

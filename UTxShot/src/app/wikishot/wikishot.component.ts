@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../models/article.model';
+import { Produit } from '../models/produit.model';
 import { ArticleService } from '../services/article.service';
+import { ProduitService } from '../services/produit.service';
 
 @Component({
   selector: 'app-wikishot',
@@ -9,14 +11,16 @@ import { ArticleService } from '../services/article.service';
 })
 export class WikishotComponent implements OnInit {
 
-  ArticleArray : Article[] = []
+  produits : Produit[] = []
 
-  constructor(service: ArticleService) {
-    this.ArticleArray = service.getProducts()
+  constructor(private produitService: ProduitService) {
+    
   }
 
   ngOnInit(): void {
-
+    this.produitService.getProduit().subscribe(res => {
+      this.produits = res;
+    })
   }
 
 }

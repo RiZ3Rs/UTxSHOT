@@ -1,13 +1,14 @@
-<div class = "card" (click)="goOnDetail()">
-    <div class = "images">
-      <img src="{{article.image[0]}}" alt="...">
+<div class="carte">
+  <p class="titre"> {{produit.nom_produit}}</p>
+  <div class = "content" >
+    <img src="{{produit.imageUrl}}" alt="...">
+    <div class="details">
+        <p>Cadence : {{produit.vitesse}} fleche/s</p>
+        <p>Taille : {{produit.taille}} cm</p>
+        <p>Cap chargeur  : {{produit.capacite_chargeur}} fleche</p>
+        <p>Temps recharge : {{produit.temps_recharge}} s</p>
+        <p>Précision : {{produit.precision}}/10</p>
+        <p>note  : {{produit.note_produit}}/5</p>
     </div>
-    <p class="titre"> {{article.titre}}</p>
-    <div class = "description">
-      <p> Taille : {{article.taille}} cm</p>
-      <p> vitesse balle : {{article.puissance}} km/h</p>
-      <p *ngIf="article.viseur; else viseurNon"> Viseur : oui </p>
-      <ng-template #viseurNon> Viseur : non </ng-template>
-      <p> Capacité chargeur : {{article.cap_chargeur}}</p>
-    </div>
+  </div>
 </div>

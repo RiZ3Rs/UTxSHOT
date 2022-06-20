@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { VenteDetailComponent } from './vente-detail/vente-detail.component';
 import { VentesComponent } from './ventes/ventes.component';
 import { WikishotComponent } from './wikishot/wikishot.component';
+import {EditProfilComponent} from './edit-profil/edit-profil.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'profil/:id', component: ProfileComponent},
   {path: 'nouveauProduit', component : ProduitFormComponent},
   {path: 'nouveauArticle', component : ArticleFormComponent},
-  {path: 'favoris/:id', component : FavoriComponent}
+  {path: 'favoris/:id', component : FavoriComponent},
+  {path: 'modifierProfil/:id',component: EditProfilComponent}
   ];
 
 @NgModule({

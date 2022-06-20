@@ -52,6 +52,7 @@ export class InscriptionComponent implements OnInit {
         this.onSignup(this.user.email,this.MDP1)
       }
     }
+    location.reload();
   }
   
   async onSignup(email:string,password:string){

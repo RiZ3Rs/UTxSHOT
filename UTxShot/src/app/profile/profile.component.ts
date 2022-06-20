@@ -21,8 +21,8 @@ export class ProfileComponent implements OnInit {
    comptePro : boolean = false;
    @Output() isLogout = new EventEmitter<void>()
    
-   constructor(public firebaseService: FirebaseService, public router : ActivatedRoute,private userService : UserService) {
-    this.userId = router.snapshot.paramMap.get('id') || '0'
+   constructor(public firebaseService: FirebaseService, public router1 : ActivatedRoute,private userService : UserService, public router : Router) {
+    this.userId = router1.snapshot.paramMap.get('id') || '0'
     userService.getUserById(this.userId).subscribe(loggedUser =>{
       this.user = loggedUser;
     } )
@@ -40,22 +40,7 @@ export class ProfileComponent implements OnInit {
        this.isSignedIn = false
      }
    }
- 
-   changeColor(){
-     if(this.darkTheme){
-       document.body.removeAttribute('data-theme');
-       this.darkTheme = false;
-     }else{
-       document.body.setAttribute('data-theme', 'dark')
-       this.darkTheme = true;
-     }
-   } 
- 
-   logout(){
-     this.firebaseService.logout()
-     this.isLogout.emit()
-     location.reload();
-   }
- 
-
+   goModifProfile(){
+    this.router.navigate(['/', 'modifierProfil', this.firebaseService.getUserID()]);
+  }
 }

@@ -30,7 +30,7 @@
                     <button class="pro-btn" [routerLink]="['/favoris', this.firebaseService.getUserID()]"><i class="fa-solid fa-heart"></i></button>
                 </div>
                 <img *ngIf="imageDeProfilURL != ''" [src]="imageDeProfilURL" alt="image profil">
-                <button class="login-btn" (click)="goProfile()"> <i class="fa-solid fa-user"></i>  Voir profil </button>
+                <button class="login-btn" (click)="goProfile()"> <i class="fa-solid fa-user"></i>  profil </button>
                 <button class="login-btn"  (click)="logout()"> <i class="fa-solid fa-person-through-window"></i> </button>
                     
             </div>

@@ -32,6 +32,7 @@ import { ArticleService } from './services/article.service';
 import { ProduitFormComponent } from './form/produit-form/produit-form.component';
 import { ArticleFormComponent } from './form/article-form/article-form.component';
 import { FavoriComponent } from './favori/favori.component';
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
 
 
 @NgModule({
@@ -54,7 +55,9 @@ import { FavoriComponent } from './favori/favori.component';
     TestComponent,
     ProduitFormComponent,
     ArticleFormComponent,
-    FavoriComponent
+    FavoriComponent,
+    EditProfilComponent
+
   ],
   imports: [
     BrowserModule,

@@ -33,6 +33,7 @@ import { ProduitFormComponent } from './form/produit-form/produit-form.component
 import { ArticleFormComponent } from './form/article-form/article-form.component';
 import { FavoriComponent } from './favori/favori.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { WikishotModifComponent } from './wikishot-modif/wikishot-modif.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { EditProfilComponent } from './edit-profil/edit-profil.component';
     ProduitFormComponent,
     ArticleFormComponent,
     FavoriComponent,
-    EditProfilComponent
+    EditProfilComponent,
+    WikishotModifComponent
 
   ],
   imports: [

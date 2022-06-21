@@ -16,8 +16,8 @@ export class WikishotCarteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // goOnDetail(){
-  //   this.router.navigate(['/', 'article', this.article.id]);
-  // }
+  goOnDetail(){
+    this.router.navigate(['/', 'modifProduit', this.produit.id]);
+  }
 
 }

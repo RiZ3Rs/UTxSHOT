@@ -111,4 +111,16 @@ export class ProduitService {
     
    return Id
   } 
+
+  updateProduit(prod: Produit){
+    let produitToUpdate = this.afs.doc('/Produits/'+prod.id);
+    produitToUpdate.update({
+      description : prod.description,
+      vitesse : prod.vitesse,
+      taille : prod.taille,
+      capacite_chargeur : prod.capacite_chargeur,
+      temps_recharge : prod.temps_recharge,
+      precision : prod.precision
+  });
+  }
 }

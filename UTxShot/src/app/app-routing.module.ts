@@ -13,6 +13,7 @@ import { VenteDetailComponent } from './vente-detail/vente-detail.component';
 import { VentesComponent } from './ventes/ventes.component';
 import { WikishotComponent } from './wikishot/wikishot.component';
 import {EditProfilComponent} from './edit-profil/edit-profil.component';
+import { WikishotModifComponent } from './wikishot-modif/wikishot-modif.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'nouveauProduit', component : ProduitFormComponent},
   {path: 'nouveauArticle', component : ArticleFormComponent},
   {path: 'favoris/:id', component : FavoriComponent},
-  {path: 'modifierProfil/:id',component: EditProfilComponent}
+  {path: 'modifierProfil/:id',component: EditProfilComponent},
+  {path: 'modifProduit/:id',component: WikishotModifComponent}
   ];
 
 @NgModule({

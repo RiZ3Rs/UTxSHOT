@@ -1,14 +1,6 @@
 <section class="card">
     <p  class="indication error" > {{erreur}}</p>
-
-    <div class="user-info">
-        <i class="fa-regular fa-t"></i>
-        <div class="use-info-input">
-            <input type="text"  [(ngModel)]="produit.nom_produit" required class="input" #nom>
-            <label for="Nom" class="input-label"> Nom </label>
-        </div>
-    </div>
-
+    
     <div class="user-info">
         <i class="fa-regular fa-rectangle-list"></i>
         <div class="use-info-input description">
@@ -57,16 +49,8 @@
         </div>
     </div>
 
-    <div class="user-info">
-      <i class="fa-solid fa-group-arrows-rotate"></i>
-      <div class="use-info-input">
-        <input type="file" (change)="addFile($event)"  required class="input" #nom>
-        <!-- <label for="email" class="input-label"> Précision {{produit.precision}}/10</label> -->
-      </div>
-  </div>
-
     <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block" (click)="addProduct()"> Ajouter produit  </button>
+      <button type="submit" class="btn btn-primary btn-block" (click)="updateProduct()"> Ajouter produit  </button>
     </div> <!-- form-group// -->      
   
 </section>

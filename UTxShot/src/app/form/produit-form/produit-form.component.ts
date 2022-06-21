@@ -25,10 +25,6 @@ export class ProduitFormComponent implements OnInit {
 
   }
 
-  noterProduit(note : number){
-    this.produit.note_produit = note;
-  }
-
   addFile(event :any){
     this.imageProduit = event.target.files[0]
     console.log(this.imageProduit)

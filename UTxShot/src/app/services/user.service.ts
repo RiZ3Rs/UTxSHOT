@@ -74,7 +74,6 @@ export class UserService {
   this.userDoc.update({
     nom : user.nom,
     prenom : user.prenom,
-    email : user.email,
     pseudo : user.pseudo
 });
  }

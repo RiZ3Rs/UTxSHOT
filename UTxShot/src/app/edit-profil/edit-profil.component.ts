@@ -48,8 +48,6 @@ export class EditProfilComponent implements OnInit {
         return 'Entrez un nom'
     }else if(this.user[0].prenom == ""){
         return 'Entrez un prénom'
-    }else if(this.user[0].email == ""){
-        return 'Entrez un email'
     }else if(this.user[0].pseudo == ""){
         return 'Entrez un pseudo'
     }else{

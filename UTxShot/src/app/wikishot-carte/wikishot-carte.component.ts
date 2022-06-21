@@ -13,8 +13,20 @@ import { ProduitService } from '../services/produit.service';
 export class WikishotCarteComponent implements OnInit {
   ngOnInit(): void {
   }
-  @Input() produit! : Produit;
+  detailProduct(){
+    this.router.navigate(['/', 'wikishot-detail', this.firebaseService.getUserID()]);
   }
+
+  @Input() produit! : Produit;
+  produit1! : Produit[];
+  modif : boolean = false;
+  productId!:string;
+  constructor(public router : Router,public firebaseService: FirebaseService,private service: ProduitService,private router1 : ActivatedRoute) { 
+    this.productId = router1.snapshot.paramMap.get('id') || '0'
+    service.getProduitbyId(this.productId).subscribe(selectedProduct =>{
+      this.produit1 = selectedProduct;
+    })
+  }}
   
 
   // goOnDetail(){

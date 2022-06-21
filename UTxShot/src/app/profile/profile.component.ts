@@ -13,10 +13,7 @@ import { UserService } from '../services/user.service';
 export class ProfileComponent implements OnInit {
   user!: User[];
   userId! :string
-
-
    isSignedIn = false
-   darkTheme : boolean;
    imageDeProfilURL : string = '';
    comptePro : boolean = false;
    @Output() isLogout = new EventEmitter<void>()
@@ -26,7 +23,6 @@ export class ProfileComponent implements OnInit {
     userService.getUserById(this.userId).subscribe(loggedUser =>{
       this.user = loggedUser;
     } )
-     this.darkTheme = false;
     }
  
    ngOnInit(): void {

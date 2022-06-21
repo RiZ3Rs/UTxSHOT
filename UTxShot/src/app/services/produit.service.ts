@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { map, Observable } from 'rxjs';
 import { Produit } from '../models/produit.model';
@@ -8,6 +8,7 @@ import { Produit } from '../models/produit.model';
   providedIn: 'root'
 })
 export class ProduitService {
+  productDoc! : AngularFirestoreDocument<Produit>;
   produitCollection!: AngularFirestoreCollection<Produit>;
   produits : Observable<Produit[]>;
 
@@ -37,6 +38,12 @@ export class ProduitService {
   getProduitbyInfo(info : string | undefined){
     this.produits = this.produits.pipe(map((produits : Produit[]) =>
       produits.filter((unProduit : Produit) => unProduit.nom_produit === info )))
+      return this.produits
+  }
+
+  getProduitbyId(id : string | undefined){
+    this.produits = this.produits.pipe(map((produits : Produit[]) =>
+      produits.filter((unProduit : Produit) => unProduit.id === id )))
       return this.produits
   }
 
@@ -107,4 +114,18 @@ export class ProduitService {
     
    return Id
   } 
+
+  updateProduct(product: Produit){
+    this.productDoc = this.afs.doc('/Produit/'+product.id);
+    this.productDoc.update({
+      nom_produit: product.nom_produit,
+      description: product.description,
+      vitesse: product.vitesse,
+      taille: product.taille,
+      capacite_chargeur: product.capacite_chargeur,
+      note_produit : product.note_produit,
+      temps_recharge: product.temps_recharge,
+      precision: product.precision,
+    });
+   }
 }

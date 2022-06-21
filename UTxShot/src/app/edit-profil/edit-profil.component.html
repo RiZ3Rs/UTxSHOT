@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                            <img src={{user[0].image_profil}} alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                             <div class="mt-3">
                                 <h4>{{user[0].pseudo}}</h4>
                                 <p class="text-secondary mb-1">Full Stack Developer</p>
@@ -39,6 +39,12 @@
                                 <h6 class="mb-0">Pseudo</h6>
                                 <label for="Nom" class="input-label"></label>
                                 <input type="text"  [(ngModel)]="user[0].pseudo" required class="input" #pseudo>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="use-info-input">
+                                <h6 class="mb-0">Photo de profil</h6>
+                                <input type="file" required class="input"  name="inputfile" (change)="addPP($event)" placeholder="image" #file>
                             </div>
                         </div>
                         <div class="row">

@@ -1,4 +1,5 @@
 import { Component, OnInit,EventEmitter,Output } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { User } from '../models/user.model';
@@ -20,9 +21,10 @@ export class EditProfilComponent implements OnInit {
   darkTheme : boolean;
   imageDeProfilURL : string = '';
   comptePro : boolean = false;
+  fileToAdd !: File;
   @Output() isLogout = new EventEmitter<void>()
    
-    constructor(public firebaseService: FirebaseService, public router : ActivatedRoute,private userService : UserService) {
+    constructor(public firebaseService: FirebaseService, public router : ActivatedRoute,private userService : UserService,private storage : AngularFireStorage) {
       this.userId = router.snapshot.paramMap.get('id') || '0'
       userService.getUserById(this.userId).subscribe(loggedUser =>{
         this.user = loggedUser;
@@ -55,12 +57,25 @@ export class EditProfilComponent implements OnInit {
     }        
 }
 
+  updateProfilPic(){
+    if(this.fileToAdd != null){
+      const task = this.storage.upload('/Users/user:'+this.userID, this.fileToAdd).catch(res =>{
+        console.log(res)
+      })
+    }
+  }
+
+  addPP(event : any){
+    this.fileToAdd = event.target.files[0]
+  }
+
    updateObject(){
     this.erreur =  this.isCompleted()
     console.log(this.erreur)
     if(this.erreur == 'ok'){
     this.userService.updateUser(this.user[0])
     }
+    this.updateProfilPic();
   }
 
 }

@@ -5,6 +5,7 @@
         <button class="button-nav" (click)="modifVente()"><i class="fa-solid fa-pencil"></i> Modifer l'annonce </button>
       </div>
       <p class="titre"> {{article.titre}}</p>
+      
       <div class="content">
         <div *ngIf="nbImage()>1;else uniqueImage" id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -44,25 +45,28 @@
         
         <div *ngIf="!modif" class = "card">
           <div class = "description">
-            <p> Taille : {{false}} cm</p>
-            <p> vitesse balle : {{false}} km/h</p>
-            <p *ngIf="false; else viseurNon"> Viseur : oui </p>
-            <ng-template #viseurNon> Viseur : non </ng-template>
-            <p> Capacité chargeur : {{false}}</p>
+            <p>Nom officiel: {{produit.nom_produit}}</p>
+            <p> Taille : {{produit.taille}} cm</p>
+            <p> vitesse balle : {{produit.vitesse}} km/h</p>
+            <p>Article en stock : {{article.stock}}</p>
+            <p> Capacité chargeur : {{produit.capacite_chargeur}}</p>
+            <p>Temps de recharge : {{produit.temps_recharge}}</p>
+            <p>Précision: {{produit.precision}}</p>
           </div>
           <div class = "etat">
             <p> Etat  : {{article.etat}}</p>
             <p *ngIf="article.custom ; else customNon"> Customisé : oui</p>
             <ng-template #customNon> Customisé : non</ng-template>
-            <p> Munitions : {{false}}</p>
+            <p> Munitions : {{article.munitionSupp}}</p>
           </div>
           <div class = "vendeur">
             <p class = 'prix'> {{article.prix}}€ </p>
-            <p> note vendeur :</p>
+            <p> Vendu par : {{user[0].pseudo}}</p>
+            <p> Contacter : {{user[0].email}}</p>
           </div>
         </div>
 
-
+        
         <section *ngIf="modif" class="card">
           <div class="user-info">
             <i class="fa-solid fa-maximize"></i>
@@ -115,6 +119,7 @@
         
         </section>
       </div>
+      <p class="descriptionProd"> {{produit.description}}</p>
       <div class="nav-button">
         <button class="button-nav" *ngIf="!isLiked" (click)="like()"><i class="fa-regular fa-heart"></i> </button>
         <button class="button-nav" *ngIf="isLiked" (click)="like()"><i class="fa-solid fa-heart"></i> </button>

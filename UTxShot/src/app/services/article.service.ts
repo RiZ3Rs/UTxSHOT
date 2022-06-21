@@ -5,7 +5,8 @@ import { map, Observable } from 'rxjs';
 import { Article } from '../models/article.model';
 
 @Injectable({providedIn: 'root'})
-export class ArticleService {produitCollection!: AngularFirestoreCollection<Article>;
+export class ArticleService {
+  produitCollection!: AngularFirestoreCollection<Article>;
   produits : Observable<Article[]>;
   filterPrice : boolean = false
   filterCustom : boolean = false

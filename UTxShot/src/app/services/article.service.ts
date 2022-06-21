@@ -7,6 +7,9 @@ import { Article } from '../models/article.model';
 @Injectable({providedIn: 'root'})
 export class ArticleService {produitCollection!: AngularFirestoreCollection<Article>;
   produits : Observable<Article[]>;
+  filterPrice : boolean = false
+  filterCustom : boolean = false
+  filterEtat : boolean = false
 
   constructor( public afs : AngularFirestore, private storage : AngularFireStorage) { 
     this.produitCollection = this.afs.collection('Articles')
@@ -46,6 +49,50 @@ export class ArticleService {produitCollection!: AngularFirestoreCollection<Arti
       produits.filter((unProduit : Article) => unProduit.id === id )))
       return this.produits
   }
+
+  filterByprice(min : number, max : number){
+    if(this.filterPrice){
+      this.getProduit()
+      this.filterCustom = false
+      this.filterEtat = false
+    }
+    this.produits = this.produits.pipe(map((tests : Article[]) =>
+    tests.filter((unTests : Article) => unTests.prix >= min && unTests.prix <= max )
+     )
+    )
+    this.filterPrice = true
+    return this.produits
+  }
+
+  filterByCustom(val : boolean){
+    if(this.filterCustom){
+      this.getProduit()
+      this.filterPrice = false
+      this.filterEtat = false
+    }
+    this.produits = this.produits.pipe(map((tests : Article[]) =>
+    tests.filter((unTests : Article) => unTests.custom === val)
+     )
+    )
+    this.filterCustom = true
+    return this.produits
+  }
+
+  filterByEtat(val : string){
+    if(this.filterEtat){
+      this.getProduit()
+      this.filterPrice = false
+      this.filterCustom = false
+    }
+    this.produits = this.produits.pipe(map((tests : Article[]) =>
+    tests.filter((unTests : Article) => unTests.etat === val)
+     )
+    )
+    this.filterEtat = true
+    return this.produits
+  }
+
+
   async ArticleExistAs(info : string | undefined){
     return new Promise((resolve ,reject)=>{
       this.getProduitbyInfo(info).subscribe((produits: string | any[]) => {

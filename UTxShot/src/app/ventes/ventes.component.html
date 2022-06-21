@@ -2,79 +2,81 @@
     <div class  = "filtres-section">
       <i class="fa-solid fa-bars"></i>
       <section class="filtre">
-        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#colorFilter" role="button" aria-expanded="false" aria-controls="collapseExample">COULEUR 🔽</button>
-        <div class="collapse" id="colorFilter">
+        <button class = "pro-btn" (click)="resetFilter()"> Reset Filter </button>
+      </section>
+      <section class="filtre">
+        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#priceFilter" role="button" aria-expanded="false" aria-controls="collapseExample"> PRIX <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="collapse" id="priceFilter">
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                black
-              </label>
+            <input class="form-check-input" (change)="priceFilter(0,15)" type="radio" name="priceCheck" id="priceCheck1">
+            <label class="form-check-label" for="priceCheck1">
+              00€ - 15€
+            </label>
           </div>
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                white
-              </label>
+            <input class="form-check-input" (change)="priceFilter(15,30)" type="radio" name="priceCheck" id="priceCheck2" checked>
+            <label class="form-check-label" for="priceCheck2">
+              15€ - 30€
+            </label>
           </div>
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                blue
-              </label>
+            <input class="form-check-input" (change)="priceFilter(30,60)" type="radio" name="priceCheck" id="priceCheck3" checked>
+            <label class="form-check-label" for="priceCheck3">
+              30€ - 60€
+            </label>
           </div>
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                orange
-              </label>
+            <input class="form-check-input" (change)="priceFilter(60,10000000000)" type="radio" name="priceCheck" id="priceCheck4" checked>
+            <label class="form-check-label" for="customCheck4">
+              +60€
+            </label>
           </div>
         </div>
       </section>
 
       <section class="filtre">
-        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#sizeFilter" role="button" aria-expanded="false" aria-controls="collapseExample"> TAILLE 🔽</button>
-        <div class="collapse" id="sizeFilter">
+        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#customFilter" role="button" aria-expanded="false" aria-controls="collapseExample"> CUSTOM <i class="fa-solid fa-caret-down"></i></button>
+        <div class="collapse" id="customFilter">
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                12-24 cm
-              </label>
+            <input class="form-check-input" (change)="customFilter(true)" type="radio" name="customCheck" id="customCheck1">
+            <label class="form-check-label" for="customCheck1">
+              oui
+            </label>
           </div>
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                24-36cm
-              </label>
-          </div>
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                36-40cm
-              </label>
-          </div>
-          <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                + 40cm
-              </label>
+            <input class="form-check-input" (change)="customFilter(false)" type="radio" name="customCheck" id="customCheck2" checked>
+            <label class="form-check-label" for="customCheck2">
+              non
+            </label>
           </div>
         </div>
       </section>
-
       <section class="filtre">
-        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#viseurFilter" role="button" aria-expanded="false" aria-controls="collapseExample">VISEUR 🔽</button>
-        <div class="collapse" id="viseurFilter">
+        <button class = "filtre-btn"  data-bs-toggle="collapse" href="#etatFilter" role="button" aria-expanded="false" aria-controls="collapseExample"> ETAT <i class="fa-solid fa-caret-down"></i></button>
+        <div class="collapse" id="etatFilter">
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Avec
+            <input class="form-check-input" (change)="etatFilter('Neuf avec emballage')" type="radio" name="etatCheck" id="etatCheck1">
+            <label class="form-check-label" for="etatCheck1">
+              Neuf emballé
+            </label>
+          </div>
+            <div class="form-check">
+              <input class="form-check-input" (change)="etatFilter('Neuf sans emballage')" type="radio" name="etatCheck" id="etatCheck2" checked>
+              <label class="form-check-label" for="etatCheck2">
+                Neuf déballé
               </label>
+            </div>
+          <div class="form-check">
+            <input class="form-check-input" (change)="etatFilter('Occasion')" type="radio" name="etatCheck" id="etatCheck3">
+            <label class="form-check-label" for="etatCheck1">
+              Occasion
+            </label>
           </div>
           <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Sans
-              </label>
+            <input class="form-check-input" (change)="etatFilter('Reconditionné')" type="radio" name="etatCheck" id="etatCheck4">
+            <label class="form-check-label" for="etatCheck1">
+              Reconditionné
+            </label>
           </div>
         </div>
       </section>

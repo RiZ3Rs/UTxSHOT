@@ -22,7 +22,6 @@ import { WikishotComponent } from './wikishot/wikishot.component';
 import { FirebaseService } from './services/firebase.service';
 import { WikishotCarteComponent } from './wikishot-carte/wikishot-carte.component';
 import { ProfileComponent } from './profile/profile.component';
-import { VenteCreateComponent } from './vente-create/vente-create.component';
 import { TestComponent } from './test/test/test.component';
 
 
@@ -52,7 +51,6 @@ import { WikishotModifComponent } from './wikishot-modif/wikishot-modif.componen
     WikishotComponent,
     WikishotCarteComponent,
     ProfileComponent,
-    VenteCreateComponent,
     TestComponent,
     ProduitFormComponent,
     ArticleFormComponent,

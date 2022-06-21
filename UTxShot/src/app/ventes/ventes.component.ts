@@ -20,4 +20,28 @@ export class VentesComponent implements OnInit {
     })
     console.log(this.ArticleArray)
   }
+
+  priceFilter(min : number , max : number){
+    this.articleService.filterByprice(min,max).subscribe(res =>{
+      this.ArticleArray = res
+    })
+
+  }
+
+  customFilter(val : boolean){
+    this.articleService.filterByCustom(val).subscribe(res =>{
+      this.ArticleArray = res
+    })
+
+  }
+  etatFilter(val : string){
+    this.articleService.filterByEtat(val).subscribe(res =>{
+      this.ArticleArray = res
+    })
+
+  }
+
+  resetFilter(){
+    location.reload()
+  }
 }

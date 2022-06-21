@@ -108,3 +108,16 @@
     background: linear-gradient(var(--degradeColor), var(--degradeColorD));
 }
 
+.pro-btn{
+    background-color: var(--headPrincipal);
+    color : var(--white);
+    border : solid 1px var(--butonCborder);
+    min-width: 10%;
+    margin-bottom: 1em;
+    &:hover{
+        background-color: var(--butonCback1);
+        border-color : var(--butonCborder);
+        transition: color 2s;
+    }
+}
+

@@ -8,8 +8,8 @@ export class Article {
     custom : boolean  = false;
     vendeurId  : string = ''
     munitionSupp? : number;
-    etat? : string;
-    prix? : number;
+    etat : string = '';
+    prix : number = 0;
     image1? : string;
     image2? : string;
     image3? : string; 
@@ -26,9 +26,9 @@ export class Article {
             return 'entrer le nombre de produit à vendre'
         }else if(this.munitionSupp == null){
             return 'Entrez le nombre de munitions supplémentires'
-        }else if(this.etat == null){
+        }else if(this.etat == null || this.etat == ''){
             return "Selectionner l'état du produit"
-        }else if(this.prix == null){
+        }else if(this.prix == null || this.prix == 0){
             return 'Entrez le prix'
         }else if(this.produit == null || this.produit == ''){
             return 'Entrez le produit à vendre'

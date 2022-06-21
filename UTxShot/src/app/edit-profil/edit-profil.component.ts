@@ -13,18 +13,19 @@ import { UserService } from '../services/user.service';
 export class EditProfilComponent implements OnInit {
   user!: User[];
   userId! :string
-   isSignedIn = false
-   darkTheme : boolean;
-   imageDeProfilURL : string = '';
-   comptePro : boolean = false;
-   @Output() isLogout = new EventEmitter<void>()
+  userID! : string
+  isSignedIn = false
+  darkTheme : boolean;
+  imageDeProfilURL : string = '';
+  comptePro : boolean = false;
+  @Output() isLogout = new EventEmitter<void>()
    
-   constructor(public firebaseService: FirebaseService, public router : ActivatedRoute,private userService : UserService) {
-    this.userId = router.snapshot.paramMap.get('id') || '0'
-    userService.getUserById(this.userId).subscribe(loggedUser =>{
-      this.user = loggedUser;
-    } )
-     this.darkTheme = false;
+    constructor(public firebaseService: FirebaseService, public router : ActivatedRoute,private userService : UserService) {
+      this.userId = router.snapshot.paramMap.get('id') || '0'
+      userService.getUserById(this.userId).subscribe(loggedUser =>{
+        this.user = loggedUser;
+      })
+      this.darkTheme = false;
     }
  
    ngOnInit(): void {
@@ -33,10 +34,23 @@ export class EditProfilComponent implements OnInit {
        this.userService.getUserById(this.firebaseService.getUserID()).subscribe( res =>{
          this.imageDeProfilURL = res[0].image_profil
          this.comptePro = res[0].pro
+         this.user= res;
        })
      }else{
        this.isSignedIn = false
      }
+     this.userID = this.firebaseService.getUserID()
    }
+
+   /*editProfil(nom:string,prenom:string){
+    this.userService.updateUserPrenom(this.userId,prenom);
+    this.userService.updateUserNom(this.userId,nom);
+   }*/
+   updateObject(index:number){
+    this.user[index].prenom = this.user[index].userID;
+    this.userService.updateUser(this.user[index])
+    window.alert('ok')
+
+  }
 
 }

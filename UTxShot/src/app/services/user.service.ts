@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
 import { User } from '../models/user.model';
 
@@ -8,12 +8,21 @@ import { User } from '../models/user.model';
 })
 export class UserService {
   userRef: AngularFirestoreCollection<User>;
+  userDoc!: AngularFirestoreDocument<User>;
+  user : Observable<User[]>;
 
   // constructor(private userSigned : User ,private db: AngularFirestore) {
   //   this.userRef = db.collection(this.dbPath);
   // }
-  constructor(private afs: AngularFirestore) {
-    this.userRef = afs.collection('User');
+  constructor(public afs: AngularFirestore) {
+    this.userRef = this.afs.collection('User');
+    this.user = this.userRef.snapshotChanges().pipe(map(changes => {
+      return changes.map(a => {
+         const data = a.payload.doc.data() as User;
+         data.userID = a.payload.doc.id;
+         return data;
+      });
+    }));
   }
 
   getUsers(): Observable<User[]>{
@@ -48,6 +57,22 @@ export class UserService {
       }
     } )
    
+ }
+
+/* updateUserPrenom(_id:any, prenom:string) {
+  this.afs.doc(`User/${_id}`).update({prenom:prenom});
+ }
+
+ updateUserNom(_id:any, nom:string) {
+  this.afs.doc(`User/${_id}`).update({nom:nom});
+ }*/
+
+ updateUser(user: User){
+  this.userDoc = this.afs.doc('/User/'+user.userID);
+  this.userDoc.update({
+    nom : user.nom,
+    prenom : user.prenom
+});
  }
 
 }

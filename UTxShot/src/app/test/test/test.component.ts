@@ -28,7 +28,7 @@ export class TestComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.testService.getTestbyInfo('title').subscribe(test =>{
+    this.testService.getTests().subscribe(test =>{
       this.test = test;
     } )
     this.userID = this.service.getUserID()

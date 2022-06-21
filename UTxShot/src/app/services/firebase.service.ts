@@ -31,4 +31,5 @@ export class FirebaseService {
     let user = JSON.parse( localStorage["user"] );
     return user['uid']
   }
+  
 }

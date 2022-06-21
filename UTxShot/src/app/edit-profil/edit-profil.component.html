@@ -24,7 +24,7 @@
                                 <h6 class="mb-0">Prénom</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" placeholder={{user[0].prenom}}>
+                                <input type="text" class="form-control" placeholder={{user[0].prenom}} #prenom>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -32,7 +32,7 @@
                                 <h6 class="mb-0">Nom</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" placeholder={{user[0].nom}}>
+                                <input type="text" class="form-control" placeholder={{user[0].nom}} #nom>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -54,7 +54,9 @@
                         <div class="row">
                             <div class="col-sm-3"></div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="button" class="btn btn-primary px-4" value="Save Changes">
+                                <li *ngFor="let value of user; let i = index">
+                                    <button (click)="updateObject(i)" type="button" class="btn btn-primary px-4" >Save Changes</button>
+                                </li>
                             </div>
                         </div>
                     </div>

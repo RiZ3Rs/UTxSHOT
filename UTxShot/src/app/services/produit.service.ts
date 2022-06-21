@@ -123,4 +123,9 @@ export class ProduitService {
       precision : prod.precision
   });
   }
+
+  deleteProduit(prod: Produit){
+    let produitToUpdate = this.afs.doc('/Produits/'+prod.id);
+    produitToUpdate.delete();
+  }
 }

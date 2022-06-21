@@ -184,6 +184,12 @@
     border-bottom-right-radius: 0px;
 }
 
+.prix{
+        font-weight: bold;
+        font-size: 2em;
+        color: var(--fontColor3);
+     }
+
 .carte{
     margin: 0px;
     padding: 0px;
@@ -221,3 +227,18 @@ p{
     text-align: center;
     
 }
+
+ .vendeur{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around;
+     align-items: center;
+     font-weight: bold;
+     font-size:auto;
+     text-align: center;
+
+     box-sizing: border-box;
+
+     width: 100%;
+     max-height: 3em;
+ }

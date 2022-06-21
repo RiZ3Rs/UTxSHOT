@@ -14,16 +14,19 @@
       <p> Etat  : {{article.etat}}</p>
       <p *ngIf="article.custom ; else customNon"> Customisé : oui</p>
       <ng-template #customNon> Customisé : non</ng-template>
-      <p> Munitions : {{article.munitions}}</p>
+      <p> Munitions : {{article.munitionSupp}}</p>
     </div>
     <div class = "vendeur">
-      <p class = 'prix'> {{article.prix}}€ </p>
+      <p class="prix"> {{article.prix}}€</p>
       <p> note vendeur :</p>
     </div>
 </div> -->
+
+<!--
+  
+-->
 <div class="carte">
   <p class="titre"> {{article.titre}}</p>
-  <p class="titre"> {{article.prix}}€</p>
   <div class = "content" (click)="goOnDetail()">
     <img src="{{article.image1}}" alt="...">
     <div class="details">
@@ -31,6 +34,9 @@
         <p *ngIf="article.custom ; else customNon"> Customisé : oui</p>
         <ng-template #customNon> Customisé : non</ng-template>
         <p> Munitions : {{article.munitionSupp}}</p>
+        <div class = "vendeur">
+          <p class="prix"> {{article.prix}}€</p>
+        </div>
     </div>
   </div>
 </div>

@@ -1,40 +1,34 @@
 import { User } from "./user.model";
 
 export class Article {
-    id? : string;
-    produit? : string;
-    titre ?: string;
-    stock ?: string;
-    custom : boolean  = false;
-    vendeurId ? : string;
-    munitionSupp? : number;
-    etat? : string;
-    prix? : number;
-    image1? : string;
-    image2? : string;
-    image3? : string; 
+    id : number;
+    titre: string;
+    createdDate: Date;
+    image: string[];
+    //vendeur : User;
 
+    taille :number;
+    puissance : number;
+    viseur : boolean;
+    cap_chargeur : number;
+    etat : string;
+    custom : boolean;
+    munitions : number;
+    prix : number;
     
-    constructor() {
-    }
-
-    isCompleted():string{
-        if(this.titre == null){
-            return 'Entrez le titre de la vente'
-        }else if(this.custom == null){
-            return 'selectionner la customisation'
-        }else if(this.stock == null){
-            return 'entrer le nombre de produit à vendre'
-        }else if(this.munitionSupp == null){
-            return 'Entrez le nombre de munitions supplémentires'
-        }else if(this.etat == null){
-            return "Selectionner l'état du produit"
-        }else if(this.prix == null){
-            return 'Entrez le prix'
-        }else if(this.produit == null || this.produit == ''){
-            return 'Entrez le produit à vendre'
-        }else{
-            return 'ok'
-        }        
+    constructor(id : number, title: string , createdDate: Date, /*user : User,*/taille : number, puissance : number,viseur : boolean,cap_chargeur : number,etat : string,custom : boolean,munitions : number,prix : number, image1: string[]) {
+        this.id = id; 
+        this.titre = title;
+        this.image = image1;
+        this.createdDate = createdDate;
+        //this.vendeur = user;
+        this.taille = taille;
+        this.puissance = puissance;
+        this.viseur = viseur;
+        this.cap_chargeur = cap_chargeur;
+        this.etat = etat;
+        this.custom = custom;
+        this.munitions = munitions;
+        this.prix = prix;
     }
   }

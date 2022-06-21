@@ -1,4 +1,5 @@
 export class User {
+    [x: string]: any;
     pro : boolean = false;
     note : number = 0;
     bddId?: string 

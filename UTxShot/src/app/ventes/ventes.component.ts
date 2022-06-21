@@ -10,14 +10,11 @@ import { ArticleService } from '../services/article.service';
 export class VentesComponent implements OnInit {
   ArticleArray : Article[] = []
 
-  constructor(private articleService: ArticleService) {
-    // this.ArticleArray = service.getProducts()
+  constructor(service: ArticleService) {
+    this.ArticleArray = service.getProducts()
   }
 
   ngOnInit(): void {
-    this.articleService.getProduit().subscribe(res =>{
-      this.ArticleArray = res
-    })
-    console.log(this.ArticleArray)
+
   }
 }

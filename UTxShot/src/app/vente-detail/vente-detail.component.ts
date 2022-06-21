@@ -14,7 +14,7 @@ export class VenteDetailComponent implements OnInit {
   isLiked : boolean = false;
 
   constructor(service: ArticleService,private router : ActivatedRoute) { 
-    // this.article = service.getProduct(parseInt(this.router.snapshot.paramMap.get('id') || '0'))
+    this.article = service.getProduct(parseInt(this.router.snapshot.paramMap.get('id') || '0'))
   }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class VenteDetailComponent implements OnInit {
   }
 
   otherImage(nb :number){
-    if(this.article.image1 == null){
+    if(this.article.image[nb] == null){
       return false;
     }else{
       return true;
@@ -30,8 +30,7 @@ export class VenteDetailComponent implements OnInit {
   }
 
   nbImage() : number{
-    // return this.article.image1.length
-    return 1
+    return this.article.image.length
     
   }
 

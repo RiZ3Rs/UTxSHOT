@@ -1,5 +1,6 @@
 import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
 import { User } from '../models/user.model';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -31,26 +32,19 @@ export class EditProfilComponent implements OnInit {
    ngOnInit(): void {
      if(localStorage.getItem('user')!== null){
        this.isSignedIn= true
-       this.userService.getUserById(this.firebaseService.getUserID()).subscribe( res =>{
-         this.imageDeProfilURL = res[0].image_profil
-         this.comptePro = res[0].pro
-         this.user= res;
-       })
+      this.userService.getUserById(this.firebaseService.getUserID()).subscribe( res =>{
+             this.imageDeProfilURL = res[0].image_profil
+             this.comptePro = res[0].pro
+             this.user= res;
+           })
      }else{
        this.isSignedIn = false
      }
      this.userID = this.firebaseService.getUserID()
    }
 
-   /*editProfil(nom:string,prenom:string){
-    this.userService.updateUserPrenom(this.userId,prenom);
-    this.userService.updateUserNom(this.userId,nom);
-   }*/
    updateObject(index:number){
-    this.user[index].prenom = this.user[index].userID;
     this.userService.updateUser(this.user[index])
-    window.alert('ok')
-
   }
 
 }

@@ -1,6 +1,8 @@
 export class User {
+    [x: string]: any;
     pro : boolean = false;
-    note : number = 0; 
+    note : number = 0;
+    bddId?: string 
     
     constructor(
         public email:string,

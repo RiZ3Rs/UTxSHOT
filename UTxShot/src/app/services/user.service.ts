@@ -19,19 +19,24 @@ export class UserService {
     this.user = this.userRef.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
          const data = a.payload.doc.data() as User;
-         data.userID = a.payload.doc.id;
+         data.bddId = a.payload.doc.id;
          return data;
       });
     }));
   }
 
   getUsers(): Observable<User[]>{
-    return this.afs.collection<User>('User').valueChanges()
+    return this.user
+  }
+
+  getUserById2(id : string){
+    return this.getUsers().pipe(map((users : User[]) =>
+    users.filter((user : User) => user.userID === id)))
   }
 
   getUserById(id : string){
     return this.getUsers().pipe(map((users : User[]) =>
-      users.filter((user : User) => user.userID === id)))
+        users.filter((user : User) => user.userID === id)))
   }
 
   createUser(user : User){
@@ -68,7 +73,7 @@ export class UserService {
  }*/
 
  updateUser(user: User){
-  this.userDoc = this.afs.doc('/User/'+user.userID);
+  this.userDoc = this.afs.doc('/User/'+user.bddId);
   this.userDoc.update({
     nom : user.nom,
     prenom : user.prenom

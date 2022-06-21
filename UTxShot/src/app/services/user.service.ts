@@ -29,10 +29,7 @@ export class UserService {
     return this.user
   }
 
-  getUserById2(id : string){
-    return this.getUsers().pipe(map((users : User[]) =>
-    users.filter((user : User) => user.userID === id)))
-  }
+ 
 
   getUserById(id : string){
     return this.getUsers().pipe(map((users : User[]) =>

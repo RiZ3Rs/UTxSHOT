@@ -1,7 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../models/article.model';
+import { Produit } from '../models/produit.model';
+import { User } from '../models/user.model';
 import { ArticleService } from '../services/article.service';
+import { ProduitService } from '../services/produit.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-vente-detail',
@@ -10,11 +14,13 @@ import { ArticleService } from '../services/article.service';
 })
 export class VenteDetailComponent implements OnInit {
   article! : Article ;
+  produit! : Produit;
+  user! : User[];
   modif : boolean = false;
   isLiked : boolean = false;
   articleId! : string
 
-  constructor(private service: ArticleService,private router : ActivatedRoute) { 
+  constructor(private service: ArticleService, private produitService : ProduitService, private userService : UserService, private router : ActivatedRoute) { 
     
 
   }
@@ -23,6 +29,13 @@ export class VenteDetailComponent implements OnInit {
     this.articleId = this.router.snapshot.paramMap.get('id') || '0'
      this.service.getProductByBDDId(this.articleId).subscribe(res => {
       this.article = res.data() || new Article()
+      this.produitService.getProductByBDDId(this.article.id).subscribe(res =>{
+        this.produit = res.data() || new Produit()
+      })
+      this.userService.getUserById(this.article.vendeurId).subscribe(res =>{
+        this.user = res
+      })
+
       console.log(this.article)
     })
   }

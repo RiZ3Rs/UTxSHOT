@@ -1,12 +1,12 @@
 import { User } from "./user.model";
 
 export class Article {
-    id? : string;
+    id : string = ''
     produit? : string;
     titre ?: string;
     stock ?: string;
     custom : boolean  = false;
-    vendeurId ? : string;
+    vendeurId  : string = ''
     munitionSupp? : number;
     etat? : string;
     prix? : number;

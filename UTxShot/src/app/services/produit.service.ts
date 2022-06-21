@@ -34,6 +34,10 @@ export class ProduitService {
     return this.produits
   }
 
+  getProductByBDDId(id : string | undefined){
+    return this.produitCollection.doc(id).get()
+  }
+
   getProduitbyInfo(info : string | undefined){
     this.produits = this.produits.pipe(map((produits : Produit[]) =>
       produits.filter((unProduit : Produit) => unProduit.nom_produit === info )))

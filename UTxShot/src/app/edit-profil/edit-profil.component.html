@@ -1,4 +1,5 @@
 <br><br><br>
+
 <div class="container">
     <div class="main-body">
         <div class="row">
@@ -19,44 +20,38 @@
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
+                        <div class="user-info">
+                            <div class="use-info-input">
                                 <h6 class="mb-0">Prénom</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" placeholder={{user[0].prenom}} #prenom>
+                                <label for="Nom" class="input-label"></label>
+                                <input type="text"  [(ngModel)]="user[0].prenom" required class="input" #prenom>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
+                        <div class="user-info">
+                            <div class="use-info-input">
                                 <h6 class="mb-0">Nom</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" placeholder={{user[0].nom}} #nom>
+                                <label for="Nom" class="input-label"></label>
+                                <input type="text"  [(ngModel)]="user[0].nom" required class="input" #nom>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
+                        <div class="user-info">
+                            <div class="use-info-input">
                                 <h6 class="mb-0">Email</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" placeholder={{user[0].email}}>
+                                <label for="Nom" class="input-label"></label>
+                                <input type="text"  [(ngModel)]="user[0].email" required class="input" #email>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-3">
+                        <div class="user-info">
+                            <div class="use-info-input">
                                 <h6 class="mb-0">Pseudo</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" placeholder={{user[0].pseudo}}>
+                                <label for="Nom" class="input-label"></label>
+                                <input type="text"  [(ngModel)]="user[0].pseudo" required class="input" #pseudo>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-3"></div>
                             <div class="col-sm-9 text-secondary">
-                                <li *ngFor="let value of user; let i = index">
-                                    <button (click)="updateObject(0)" type="button" class="btn btn-primary px-4" >Save Changes</button>
-                                </li>
+                                <button (click)="updateObject()" type="button" class="btn btn-primary px-4" >Save Changes</button>
+                                <p  class="indication error" > {{erreur}}</p>
                             </div>
                         </div>
                     </div>

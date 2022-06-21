@@ -76,7 +76,9 @@ export class UserService {
   this.userDoc = this.afs.doc('/User/'+user.bddId);
   this.userDoc.update({
     nom : user.nom,
-    prenom : user.prenom
+    prenom : user.prenom,
+    email : user.email,
+    pseudo : user.pseudo
 });
  }
 

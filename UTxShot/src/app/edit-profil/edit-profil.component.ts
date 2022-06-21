@@ -12,6 +12,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./edit-profil.component.scss']
 })
 export class EditProfilComponent implements OnInit {
+  erreur: string = ''
   user!: User[];
   userId! :string
   userID! : string
@@ -42,9 +43,26 @@ export class EditProfilComponent implements OnInit {
      }
      this.userID = this.firebaseService.getUserID()
    }
+   isCompleted():string{
+    if(this.user[0].nom == ""){
+        return 'Entrez un nom'
+    }else if(this.user[0].prenom == ""){
+        return 'Entrez un prénom'
+    }else if(this.user[0].email == ""){
+        return 'Entrez un email'
+    }else if(this.user[0].pseudo == ""){
+        return 'Entrez un pseudo'
+    }else{
+        return 'ok'
+    }        
+}
 
-   updateObject(index:number){
-    this.userService.updateUser(this.user[index])
+   updateObject(){
+    this.erreur =  this.isCompleted()
+    console.log(this.erreur)
+    if(this.erreur == 'ok'){
+    this.userService.updateUser(this.user[0])
+    }
   }
 
 }

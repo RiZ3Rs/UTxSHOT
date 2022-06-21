@@ -10,20 +10,10 @@ import { FirebaseService } from '../services/firebase.service';
   styleUrls: ['./wikishot-detail.component.scss']
 })
 export class WikishotDetailComponent implements OnInit {
-  produit! : Produit[];
-  modif : boolean = false;
-  productId!:string;
   constructor(public router : Router,public firebaseService: FirebaseService,private service: ProduitService,private router1 : ActivatedRoute) { 
-    this.productId = router1.snapshot.paramMap.get('id') || '0'
-    service.getProduitbyId(this.productId).subscribe(selectedProduct =>{
-      this.produit = selectedProduct;
-    })
   }
   
 
   ngOnInit(): void {}
-  detailProduct(){
-    this.router.navigate(['/', 'wikishot-detail', this.firebaseService.getUserID()]);
-  }
 
 }

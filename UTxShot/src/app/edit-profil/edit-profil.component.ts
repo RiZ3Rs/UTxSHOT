@@ -17,7 +17,6 @@ export class EditProfilComponent implements OnInit {
   userId! :string
   userID! : string
   isSignedIn = false
-  darkTheme : boolean;
   imageDeProfilURL : string = '';
   comptePro : boolean = false;
   @Output() isLogout = new EventEmitter<void>()
@@ -27,7 +26,7 @@ export class EditProfilComponent implements OnInit {
       userService.getUserById(this.userId).subscribe(loggedUser =>{
         this.user = loggedUser;
       })
-      this.darkTheme = false;
+
     }
  
    ngOnInit(): void {

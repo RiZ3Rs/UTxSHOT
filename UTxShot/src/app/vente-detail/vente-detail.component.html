@@ -14,13 +14,13 @@
           </div> 
             <div class="carousel-inner">
               <div  *ngIf="otherImage(0)" class="carousel-item active" data-bs-interval="5000"> 
-                <img src="{{article.image[0]}}" class="d-block w-100" alt="...">
+                <img src="{{false}}" class="d-block w-100" alt="...">
               </div>
               <div  *ngIf="otherImage(1)" class="carousel-item" data-bs-interval="2000"> 
-                <img src="{{article.image[1]}}" class="d-block w-100" alt="...">
+                <img src="{{false}}" class="d-block w-100" alt="...">
               </div>
               <div  *ngIf="otherImage(2)" class="carousel-item" data-bs-interval="2000"> 
-                <img src="{{article.image[2]}}" class="d-block w-100" alt="...">
+                <img src="{{false}}" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -33,21 +33,21 @@
             </button>
           </div>
         <ng-template #uniqueImage>
-            <img src="{{article.image[0]}}"  alt="...">
+            <img src="{{false}}"  alt="...">
         </ng-template>
         <div *ngIf="!modif" class = "card">
           <div class = "description">
-            <p> Taille : {{article.taille}} cm</p>
-            <p> vitesse balle : {{article.puissance}} km/h</p>
-            <p *ngIf="article.viseur; else viseurNon"> Viseur : oui </p>
+            <p> Taille : {{false}} cm</p>
+            <p> vitesse balle : {{false}} km/h</p>
+            <p *ngIf="false; else viseurNon"> Viseur : oui </p>
             <ng-template #viseurNon> Viseur : non </ng-template>
-            <p> Capacité chargeur : {{article.cap_chargeur}}</p>
+            <p> Capacité chargeur : {{false}}</p>
           </div>
           <div class = "etat">
             <p> Etat  : {{article.etat}}</p>
             <p *ngIf="article.custom ; else customNon"> Customisé : oui</p>
             <ng-template #customNon> Customisé : non</ng-template>
-            <p> Munitions : {{article.munitions}}</p>
+            <p> Munitions : {{false}}</p>
           </div>
           <div class = "vendeur">
             <p class = 'prix'> {{article.prix}}€ </p>

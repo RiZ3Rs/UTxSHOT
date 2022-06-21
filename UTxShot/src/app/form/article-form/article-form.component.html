@@ -1,1 +1,99 @@
-<p>article-form works!</p>
+<section class="card">
+    <p  class="indication error" > {{erreur}}</p>
+
+    <div class="user-info">
+        <i class="fa-regular fa-t"></i>
+        <div class="use-info-input">
+            <input type="text"  [(ngModel)]="article.titre" required class="input" #nom>
+            <label for="Nom" class="input-label"> Titre Annonce </label>
+        </div>
+    </div>
+
+    <div class="user-info">
+        <i class="fa-regular fa-t"></i>
+        <div class="use-info-input">
+            <select class="input" [(ngModel)]="article.produit" aria-label="Default select example">
+                <option *ngFor="let productVar of produits" value="{{productVar.id}}" >{{productVar.nom_produit}}</option>
+            </select>
+            <label for="Nom" class="input-label"> Produit vendu </label>
+        </div>
+    </div>
+    
+
+    <div class="user-info">
+        <i class="fa-regular fa-t"></i>
+        <div class="use-info-input">
+            <input type="number"  [(ngModel)]="article.stock" min="0" required class="input" #nom>
+            <label for="Nom" class="input-label"> nombre d'article a vendre </label>
+        </div>
+    </div>
+
+    <div class="user-info">
+		<div class ="souv">
+			<label for="souv" class="toggler">
+				<input type="checkbox" [(ngModel)]="article.custom" name="pro" id ="souv" #souv>
+				<span class="ball"></span>
+				<i class ="ri-cross-line sun"></i>
+				<i class ="ri-sun-line sun"></i>
+			</label>
+			<p class="ball-text"> Article custom ? </p>
+		</div>
+	</div>
+
+    <div class="user-info">
+      <i class="fa-solid fa-maximize"></i>
+      <div class="use-info-input">
+        <input type="number" [(ngModel)]="article.munitionSupp" min="0" required class="input" #taille>
+        <label for="taille" class="input-label"> Munition supplementaires</label>
+      </div>
+    </div>
+
+    <div class="user-info">
+        <i class="fa-regular fa-t"></i>
+        <div class="use-info-input">
+            <select class="input" [(ngModel)]="article.etat" aria-label="Default select example">
+                <option >Neuf avec emballage</option>
+                <option >Neuf sans emballage</option>
+                <option >Occasion</option>
+                <option >Reconditionné</option>
+            </select>
+            <label for="Nom" class="input-label"> Etat produit </label>
+        </div>
+    </div>
+    
+
+    <div class="user-info">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <div class="use-info-input">
+          <input type="number" [(ngModel)]="article.prix" required class="input" #nom>
+          <label for="email" class="input-label">prix : {{article.prix}}€</label>
+        </div>
+    </div>
+
+    <div class="user-info">
+      <i class="fa-solid fa-group-arrows-rotate"></i>
+      <div class="use-info-input">
+        <input type="file" (change)="addFile($event,0)"  required class="input" #nom>
+        <!-- <label for="email" class="input-label"> Précision {{produit.precision}}/10</label> -->
+      </div>
+    </div>
+
+    <div class="user-info" *ngIf="imageArticle != null" >
+        <i class="fa-solid fa-group-arrows-rotate"></i>
+        <div class="use-info-input">
+          <input type="file" (change)="addFile($event,1)"  required class="input" #nom>
+          <!-- <label for="email" class="input-label"> Précision {{produit.precision}}/10</label> -->
+        </div>
+      </div>
+
+      <div class="user-info" *ngIf="imageArticle2 != null" >
+        <i class="fa-solid fa-group-arrows-rotate"></i>
+        <div class="use-info-input">
+          <input type="file" (change)="addFile($event,2)"  required class="input" #nom>
+          <!-- <label for="email" class="input-label"> Précision {{produit.precision}}/10</label> -->
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click)="addProduct()"> Ajouter produit  </button>
+      </div> <!-- form-group// -->  

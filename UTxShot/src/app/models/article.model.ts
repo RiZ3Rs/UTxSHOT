@@ -2,7 +2,7 @@ import { User } from "./user.model";
 
 export class Article {
     id : string = ''
-    produit? : string;
+    produit : string ='';
     titre ?: string;
     stock ?: string;
     custom : boolean  = false;

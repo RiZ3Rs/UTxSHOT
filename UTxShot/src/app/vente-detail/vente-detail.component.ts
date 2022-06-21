@@ -29,14 +29,14 @@ export class VenteDetailComponent implements OnInit {
     this.articleId = this.router.snapshot.paramMap.get('id') || '0'
      this.service.getProductByBDDId(this.articleId).subscribe(res => {
       this.article = res.data() || new Article()
-      this.produitService.getProductByBDDId(this.article.id).subscribe(res =>{
+      this.produitService.getProductByBDDId(this.article.produit).subscribe(res =>{
         this.produit = res.data() || new Produit()
       })
       this.userService.getUserById(this.article.vendeurId).subscribe(res =>{
         this.user = res
       })
 
-      console.log(this.article)
+      console.log(this.produit)
     })
   }
 

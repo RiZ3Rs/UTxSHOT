@@ -17,7 +17,6 @@ export class EditProfilComponent implements OnInit {
   userId! :string
   userID! : string
   isSignedIn = false
-
   imageDeProfilURL : string = '';
   comptePro : boolean = false;
   @Output() isLogout = new EventEmitter<void>()
@@ -27,6 +26,7 @@ export class EditProfilComponent implements OnInit {
       userService.getUserById(this.userId).subscribe(loggedUser =>{
         this.user = loggedUser;
       })
+
     }
  
    ngOnInit(): void {
@@ -56,7 +56,7 @@ export class EditProfilComponent implements OnInit {
     }        
 }
 
-  updateObject(){
+   updateObject(){
     this.erreur =  this.isCompleted()
     console.log(this.erreur)
     if(this.erreur == 'ok'){

@@ -79,7 +79,7 @@ export class UserService {
     prenom : user.prenom,
     email : user.email,
     pseudo : user.pseudo
-  });
+});
  }
 
 }

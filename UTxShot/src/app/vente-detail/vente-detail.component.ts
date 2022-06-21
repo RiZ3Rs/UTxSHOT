@@ -4,6 +4,7 @@ import { Article } from '../models/article.model';
 import { Produit } from '../models/produit.model';
 import { User } from '../models/user.model';
 import { ArticleService } from '../services/article.service';
+import { FirebaseService } from '../services/firebase.service';
 import { ProduitService } from '../services/produit.service';
 import { UserService } from '../services/user.service';
 
@@ -16,12 +17,13 @@ export class VenteDetailComponent implements OnInit {
   article! : Article ;
   produit! : Produit;
   user! : User[];
+  currentUser! : string;
   modif : boolean = false;
   isLiked : boolean = false;
   articleId! : string
 
-  constructor(private service: ArticleService, private produitService : ProduitService, private userService : UserService, private router : ActivatedRoute) { 
-    
+  constructor(private service: ArticleService, private produitService : ProduitService, private userService : UserService, private router : ActivatedRoute, public firebaseService: FirebaseService, private route : Router) { 
+      this.currentUser = firebaseService.getUserID()
 
   }
 
@@ -95,6 +97,18 @@ export class VenteDetailComponent implements OnInit {
     }else{
       this.isLiked = false;
     }
+  }
+
+  updateArticle(){
+    this.article.id = this.articleId
+    this.service.updateArticle(this.article)
+    this.modif = false
+  }
+
+  DeleteArticle(){
+    this.article.id = this.articleId
+    this.service.deleteArticle(this.article)
+    this.route.navigate([''])
   }
 
 

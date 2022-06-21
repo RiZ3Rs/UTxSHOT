@@ -141,4 +141,21 @@ export class ArticleService {produitCollection!: AngularFirestoreCollection<Arti
     })
    return Id
   } 
+
+  updateArticle(prod: Article){
+    let produitToUpdate = this.afs.doc('/Articles/'+prod.id);
+    produitToUpdate.update({
+      titre : prod.titre,
+      stock : prod.stock,
+      custom : prod.custom,
+      munitionSupp : prod.munitionSupp,
+      etat : prod.etat,
+      prix : prod.prix
+  });
+  }
+
+  deleteArticle(prod: Article){
+    let produitToUpdate = this.afs.doc('/Articles/'+prod.id);
+    produitToUpdate.delete();
+  }
 }

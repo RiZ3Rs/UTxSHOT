@@ -2,9 +2,11 @@
     <div class = "detail">
       <div class="nav-button">
         <button class="button-nav" [routerLink]="['/ventes']"><i class="fa-solid fa-chevron-left"></i> Retour aux ventes </button>
-        <button class="button-nav" (click)="modifVente()"><i class="fa-solid fa-pencil"></i> Modifer l'annonce </button>
+        <button *ngIf="article.vendeurId == currentUser" class="button-nav" (click)="modifVente()"><i class="fa-solid fa-pencil"></i> Modifer l'annonce </button>
       </div>
       <p class="titre"> {{article.titre}}</p>
+      <p> Vendu par : {{user[0].pseudo}}</p>
+      <p> Contacter : {{user[0].email}}</p>
       
       <div class="content">
         <div *ngIf="nbImage()>1;else uniqueImage" id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -61,69 +63,83 @@
           </div>
           <div class = "vendeur">
             <p class = 'prix'> {{article.prix}}€ </p>
-            <p> Vendu par : {{user[0].pseudo}}</p>
-            <p> Contacter : {{user[0].email}}</p>
+            <!-- <p> Vendu par : {{user[0].pseudo}}</p>
+            <p> Contacter : {{user[0].email}}</p> -->
           </div>
         </div>
 
         
         <section *ngIf="modif" class="card">
           <div class="user-info">
-            <i class="fa-solid fa-maximize"></i>
+            <i class="fa-regular fa-t"></i>
             <div class="use-info-input">
-              <input type="text" required class="input" #nom>
-              <label for="email" class="input-label"> taille (cm)</label>
+                <input type="text"  [(ngModel)]="article.titre" required class="input" #nom>
+                <label for="Nom" class="input-label"> Titre Annonce </label>
             </div>
-          </div>
-
-          <div class="user-info">
-            <i class="fa-solid fa-bolt"></i>
-            <div class="use-info-input">
-              <input type="text" required class="input" #nom>
-              <label for="email" class="input-label"> vitesse balle (m/s)</label>
-            </div>
-          </div>
-
-          <div class="user-info">
-            <div class ="souv">
-              <label for="souv" class="toggler">
-                <input type="checkbox" id ="souv" #souv>
-                <span class="ball"></span>
-                <i class="fa-solid fa-xmark"></i>
-                <i class="fa-solid fa-check"></i>
-              </label>
-              <p class="ball-text"><i class="fa-solid fa-crosshairs"></i> viseur </p>
-            </div>
-          </div>
-
-          <div class="user-info">
-            <i class="fa-brands fa-stack-overflow"></i> 
-            <div class="use-info-input">
-              <input type="text" required class="input" #nom>
-              <label for="email" class="input-label">capacité chargeur (nb)</label>
-            </div>
-          </div>
-
-          <div class="user-info">
-            <i class="fa-solid fa-euro-sign"></i>
-            <div class="use-info-input">
-              <input type="text" required class="input" #nom>
-              <label for="email" class="input-label">  prix (€)</label>
-            </div>
-          </div>
-
+        </div>
         
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Valider  </button>
-          </div> <!-- form-group// -->      
+        <div class="user-info">
+            <i class="fa-regular fa-t"></i>
+            <div class="use-info-input">
+                <input type="number"  [(ngModel)]="article.stock" min="0" required class="input" #nom>
+                <label for="Nom" class="input-label"> nombre d'article a vendre </label>
+            </div>
+        </div>
+    
+        <div class="user-info">
+        <div class ="souv">
+          <label for="souv" class="toggler">
+            <input type="checkbox" [(ngModel)]="article.custom" name="pro" id ="souv" #souv>
+            <span class="ball"></span>
+            <i class ="ri-cross-line sun"></i>
+            <i class ="ri-sun-line sun"></i>
+          </label>
+          <p class="ball-text"> Article custom ? </p>
+        </div>
+      </div>
+    
+        <div class="user-info">
+          <i class="fa-solid fa-maximize"></i>
+          <div class="use-info-input">
+            <input type="number" [(ngModel)]="article.munitionSupp" min="0" required class="input" #taille>
+            <label for="taille" class="input-label"> Munition supplementaires</label>
+          </div>
+        </div>
+    
+        <div class="user-info">
+            <i class="fa-regular fa-t"></i>
+            <div class="use-info-input">
+                <select class="input" [(ngModel)]="article.etat" aria-label="Default select example">
+                    <option >Neuf avec emballage</option>
+                    <option >Neuf sans emballage</option>
+                    <option >Occasion</option>
+                    <option >Reconditionné</option>
+                </select>
+                <label for="Nom" class="input-label"> Etat produit </label>
+            </div>
+        </div>
         
+    
+        <div class="user-info">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <div class="use-info-input">
+              <input type="number" [(ngModel)]="article.prix" required class="input" #nom>
+              <label for="email" class="input-label">prix : {{article.prix}}€</label>
+            </div>
+        </div>      
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" (click)="updateArticle()"> Ajouter produit  </button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" (click)="DeleteArticle()"> Supprimer produit  </button>
+        </div>
         </section>
       </div>
       <p class="descriptionProd"> {{produit.description}}</p>
       <div class="nav-button">
         <button class="button-nav" *ngIf="!isLiked" (click)="like()"><i class="fa-regular fa-heart"></i> </button>
         <button class="button-nav" *ngIf="isLiked" (click)="like()"><i class="fa-solid fa-heart"></i> </button>
-        <button class="button-nav" [routerLink]="['/parties']"><i class="fa-solid fa-pencil"></i> Modifer l'annonce </button>
+        <button *ngIf="article.vendeurId == currentUser" class="button-nav" (click)="modifVente()"><i class="fa-solid fa-pencil"></i> Modifer l'annonce </button>
       </div>
     </div>
     

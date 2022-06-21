@@ -20,16 +20,9 @@ export class ArticleService {produitCollection!: AngularFirestoreCollection<Arti
     }));
   }
 
-  // getProduit(){
-  //   this.produits = this.produitCollection.snapshotChanges().pipe(map((changes: any[]) => {
-  //     return changes.map((a: { payload: { doc: { data: () => any; id: any; }; }; }) => {
-  //        const data = a.payload.doc.data() as Article;
-  //        data.id = a.payload.doc.id;
-  //        return data;
-  //     });
-  //   }));
-  //   return this.produits
-  // }
+  getProductByBDDId(id : string){
+    return this.produitCollection.doc(id).get()
+  }
 
   getProduit(){
     this.produits = this.produitCollection.snapshotChanges().pipe(map(changes => {

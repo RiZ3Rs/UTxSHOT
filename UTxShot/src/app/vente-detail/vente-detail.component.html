@@ -14,13 +14,13 @@
           </div> 
             <div class="carousel-inner">
               <div  *ngIf="otherImage(0)" class="carousel-item active" data-bs-interval="5000"> 
-                <img src="{{false}}" class="d-block w-100" alt="...">
+                <img src="{{article.image1}}" class="d-block w-100" alt="...">
               </div>
               <div  *ngIf="otherImage(1)" class="carousel-item" data-bs-interval="2000"> 
-                <img src="{{false}}" class="d-block w-100" alt="...">
+                <img src="{{article.image2}}" class="d-block w-100" alt="...">
               </div>
               <div  *ngIf="otherImage(2)" class="carousel-item" data-bs-interval="2000"> 
-                <img src="{{false}}" class="d-block w-100" alt="...">
+                <img src="{{article.image3}}" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -33,8 +33,15 @@
             </button>
           </div>
         <ng-template #uniqueImage>
-          <img src="{{false}}"  alt="...">
+
+            <!-- <img src="{{article.image1}}"  alt="..."> -->
+            <div class="carousel-inner">
+              <div   class="carousel-item active" data-bs-interval="5000"> 
+                <img src="{{article.image1}}" class="d-block w-100" alt="...">
+              </div>
+            </div>
         </ng-template>
+        
         <div *ngIf="!modif" class = "card">
           <div class = "description">
             <p> Taille : {{false}} cm</p>

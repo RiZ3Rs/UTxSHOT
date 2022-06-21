@@ -9,29 +9,62 @@ import { ArticleService } from '../services/article.service';
   styleUrls: ['./vente-detail.component.scss']
 })
 export class VenteDetailComponent implements OnInit {
-  article! : Article;
+  article! : Article ;
   modif : boolean = false;
   isLiked : boolean = false;
+  articleId! : string
 
-  constructor(service: ArticleService,private router : ActivatedRoute) { 
-    //this.article = service.getProduct(parseInt(this.router.snapshot.paramMap.get('id') || '0'))
+  constructor(private service: ArticleService,private router : ActivatedRoute) { 
+    
+
   }
 
   ngOnInit(): void {
-    
+    this.articleId = this.router.snapshot.paramMap.get('id') || '0'
+     this.service.getProductByBDDId(this.articleId).subscribe(res => {
+      this.article = res.data() || new Article()
+      console.log(this.article)
+    })
   }
 
   otherImage(nb :number){
-    if(this.article.image1 == null){
-      return false;
+    if(nb == 0){
+      if(this.article.image1 == ''){
+        return false;
+      }else{
+        return true;
+      }
+    }else if(nb == 1){
+      if(this.article.image2 == ''){
+        return false;
+      }else{
+        return true;
+      }
+    }else if(nb == 1){
+      if(this.article.image3 == ''){
+        return false;
+      }else{
+        return true;
+      }
     }else{
-      return true;
+      return false
     }
+    
   }
 
   nbImage() : number{
-    //return this.article.image.length
-    return 1
+
+    let nb = 0
+    if(this.article.image1  != ''){
+      nb +=1
+    }
+    if(this.article.image2  != ''){
+      nb +=1
+    }
+    if(this.article.image3  != ''){
+      nb +=1
+    }
+    return nb
     
   }
 

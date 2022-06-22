@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/models/article.model';
 import { Produit } from 'src/app/models/produit.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -16,7 +16,7 @@ export class ProduitFormComponent implements OnInit {
   erreur: string = ''
   imageProduit! : File
 
-  constructor(private router : ActivatedRoute,private firebaseService : FirebaseService, private produitService : ProduitService) { 
+  constructor(private router : ActivatedRoute,private firebaseService : FirebaseService, private produitService : ProduitService, private route :Router) { 
     this.vendeurId = this.firebaseService.getUserID()
     this.produit.note_produit = 0;
   }
@@ -39,9 +39,9 @@ export class ProduitFormComponent implements OnInit {
           test = res
         })
         if(!test){
-          console.log('do')
           this.produitService.addProduit(this.produit, this.imageProduit )
           this.erreur = ''
+          this.route.navigate(['/wikishot'])
         }else{
           this.erreur = 'Le produit existe déjà'
         }

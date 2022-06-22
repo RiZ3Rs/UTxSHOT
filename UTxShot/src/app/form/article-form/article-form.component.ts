@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/models/article.model';
 import { Produit } from 'src/app/models/produit.model';
 import { ArticleService } from 'src/app/services/article.service';
@@ -21,7 +21,7 @@ export class ArticleFormComponent implements OnInit {
   imageArticle3? : File
   nbImage : number = 0
 
-  constructor(private router : ActivatedRoute,private firebaseService : FirebaseService, private produitService : ProduitService, private articleService : ArticleService) { 
+  constructor(private router : ActivatedRoute,private firebaseService : FirebaseService, private produitService : ProduitService, private articleService : ArticleService, private route : Router) { 
     this.vendeurId = this.firebaseService.getUserID()
     this.produitService.getProduit().subscribe(toutProduits =>{
       this.produits = toutProduits
@@ -62,6 +62,7 @@ export class ArticleFormComponent implements OnInit {
         this.article.vendeurId = this.vendeurId
         this.articleService.addArticle(this.article, this.imageArticle, this.imageArticle2, this.imageArticle3)
         this.erreur = ''
+        this.route.navigate(['/ventes'])
       }else{
         this.erreur = 'Selectionnez une image'
       }

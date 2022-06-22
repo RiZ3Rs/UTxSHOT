@@ -124,6 +124,9 @@
     width: 15rem;
     overflow: hidden;
     position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     cursor: pointer; 
     border : solid 1px var(--blue);
     background-color: var(--backColor);
@@ -135,8 +138,10 @@
 }
 
 .content img {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .content:hover .details{

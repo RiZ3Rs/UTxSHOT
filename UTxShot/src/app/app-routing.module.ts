@@ -22,8 +22,8 @@ const routes: Routes = [
     ]
   },
   {path:'wikishot', component: WikishotComponent},
-  {path:'lieux', component: LieuxComponent},
-  {path:'parties', component: PartiesComponent},
+  // {path:'lieux', component: LieuxComponent},
+  // {path:'parties', component: PartiesComponent},
   {path:'connection', component:ConnectionComponent},
   {path:'inscription', component:InscriptionComponent},
   {path: 'article/:id', component: VenteDetailComponent },

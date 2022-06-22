@@ -277,7 +277,7 @@ section{
 }
 
 .descriptionProd{
-    overflow: scroll;
+    overflow-y: auto;
     max-height: 4.9em;
     padding-left: 2em;
     padding-right: 2em;

@@ -38,9 +38,10 @@
         
     </div>
     <div class = "nav-bar">
-        <button [routerLink]="['/lieux']"> Lieux </button>
-        <button [routerLink]="['/parties']"> Parties </button>
+        <!-- <button [routerLink]="['/lieux']"> Lieux </button>
+        <button [routerLink]="['/parties']"> Parties </button> -->
         <button [routerLink]="['/ventes']"> Ventes </button>
+        <button class="pro-btn" [routerLink]="['/favoris', this.firebaseService.getUserID()]"><i class="fa-solid fa-heart"></i></button>
         <button [routerLink]="['/wikishot']"> WikiShot </button>
     </div>
 </nav>
